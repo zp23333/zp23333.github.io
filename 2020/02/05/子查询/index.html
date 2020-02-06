@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zp23333.github.io">
-  <title>chrome | Hexo</title>
+  <title>子查询 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="把下载后的.crx扩展名的离线Chrome插件的文件扩展名改成.zip或者.rar（如何查看Chrome插件的扩展名？文件夹&amp;gt;工具&amp;gt;文件夹&amp;gt;查看&amp;gt;隐藏已知文件类型的扩展名）">
-<meta name="keywords" content="随笔">
+  <meta name="description" content="子查询1.1 单行子查询">
+<meta name="keywords" content="oracle">
 <meta property="og:type" content="article">
-<meta property="og:title" content="chrome">
-<meta property="og:url" content="http:&#x2F;&#x2F;zp23333.github.io&#x2F;2019&#x2F;11&#x2F;22&#x2F;chrome&#x2F;index.html">
+<meta property="og:title" content="子查询">
+<meta property="og:url" content="http:&#x2F;&#x2F;zp23333.github.io&#x2F;2020&#x2F;02&#x2F;05&#x2F;%E5%AD%90%E6%9F%A5%E8%AF%A2&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="把下载后的.crx扩展名的离线Chrome插件的文件扩展名改成.zip或者.rar（如何查看Chrome插件的扩展名？文件夹&amp;gt;工具&amp;gt;文件夹&amp;gt;查看&amp;gt;隐藏已知文件类型的扩展名）">
+<meta property="og:description" content="子查询1.1 单行子查询">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-11-22T00:52:31.082Z">
+<meta property="og:updated_time" content="2020-02-06T18:07:23.667Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -162,41 +162,51 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-chrome" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-子查询" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      chrome
+      子查询
     </h1>
   
 
         
-        <a href="/2019/11/22/chrome/" class="archive-article-date">
-  	<time datetime="2019-11-22T00:45:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-22</time>
+        <a href="/2020/02/05/%E5%AD%90%E6%9F%A5%E8%AF%A2/" class="archive-article-date">
+  	<time datetime="2020-02-05T08:02:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-05</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ul>
-<li><p>把下载后的.crx扩展名的离线Chrome插件的文件扩展名改成.zip或者.rar（如何查看Chrome插件的扩展名？文件夹&gt;工具&gt;文件夹&gt;查看&gt;隐藏已知文件类型的扩展名）</p>
-<a id="more"></a>
-</li>
-<li><p>右键点击该文件，并使用压缩软件（如winrar、好压、360压缩等）对该压缩文件进行解压，并保存到系统的一个任意文件夹下；</p>
-</li>
-<li><p>解压成功以后，该Chrome插件就会以文件夹的形式存在于操作系统的某一个目录下面；</p>
-</li>
-<li><p>在Chrome的地址栏中输入：chrome://extensions/ 打开Chrome浏览器的扩展程序管理界面，并在该界面的右上方的开发者模式按钮上打勾；</p>
-</li>
-<li><p>在勾选开发者模式选项以后，在该页面就会出现加载正在开发的扩展程序等按钮，点击“加载正在开发的扩展程序”按钮，并选择刚刚解压的Chrome插件文件夹的位置；</p>
-</li>
-<li><p>这时候如果不出意外，Chrome插件就会成功加载到谷歌浏览器中。但是如果运气不好也有意外的情况；</p>
-</li>
-</ul>
+        <h2 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a>子查询</h2><h4 id="1-1-单行子查询"><a href="#1-1-单行子查询" class="headerlink" title="1.1 单行子查询"></a>1.1 单行子查询</h4><a id="more"></a>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from emp where sal&gt;(select sal from emp where empro =7566);</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-2-子查询空值-多值问题"><a href="#1-2-子查询空值-多值问题" class="headerlink" title="1.2 子查询空值/多值问题"></a><strong>1.2 子查询空值/多值问题</strong></h4><p>1.2.1空值相应的主查询不会返回任何结果</p>
+<p>1.2.2 子查询返回单行结果，可以比较</p>
+<p>1.2.3 子查询返回多行结果，不能比较  非法</p>
+<h4 id="1-3多行子查询"><a href="#1-3多行子查询" class="headerlink" title="1.3多行子查询"></a>1.3多行子查询</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">select * from emp where sal &gt; any(select avg(sal) from emp group by deptno);(相当于大于最小的)</span><br><span class="line"></span><br><span class="line">select * from emp where sal &gt; all(select avg(sal) from emp group by deptno);（相当于大于最大的）</span><br><span class="line"></span><br><span class="line">select * from emp where job in ( select job from emp where ename=&apos;MARTIN&apos; or ename=&apos;SMITH&apos;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-4-TopN查询"><a href="#1-4-TopN查询" class="headerlink" title="1.4 TopN查询"></a>1.4 TopN查询</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">select * from emp where rownum=1 or rownum=2;</span><br><span class="line"></span><br><span class="line">select * from(select * from emp order by sal desc )</span><br><span class="line">where rownum&lt;=5;</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-5分页查询"><a href="#1-5分页查询" class="headerlink" title="1.5分页查询"></a>1.5分页查询</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">查询工资的3到5名</span><br><span class="line">select  * from (select rownum no ,e.* from </span><br><span class="line">(select * from emp order by sal desc) e where rownum&lt;=5</span><br><span class="line">                )where no&gt;=3;</span><br><span class="line">                </span><br><span class="line">select  * from </span><br><span class="line">(select rownum no，e.* from (select * from emp order by sal desc)e )</span><br><span class="line">where no&gt;=3 and no&lt;=5;</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-6-exists"><a href="#1-6-exists" class="headerlink" title="1.6 exists"></a>1.6 exists</h4><p>select a.col1,a.col2 from temp1 a where not exists (select ‘X’ from temp2 b where b.col2 = a.col1);<br>select ‘X’ 可以理解成存在(exists)不存在(not exists)的含义。<br>如上面   <strong>找到a表中  col1的字段值不与b表中col2字段值相等的数据</strong><br>从效率来看：</p>
+<p>1) select * from T1 where exists(select 1 from T2 where T1.a=T2.a) ;<br><strong>T1数据量小而T2数据量非常大时，T1&lt;&lt;T2 时，1) 的查询效率高。</strong><br>2) select * from T1 where T1.a in (select T2.a from T2) ;<br><strong>T1数据量非常大而T2数据量小时，T1&gt;&gt;T2 时，2) 的查询效率高</strong>。<br><strong>简而言之，一般式：!!外表大，用IN；!!!!内表大，用EXISTS。</strong><br>执行方式：<br>通过使用EXISTS，<strong>Oracle会首先检查主查询，然后运行子查询直到它找到第一个匹配项</strong>，这就节省了时间。oracle在执行IN子查询时，<strong>首先执行子查询，并将获得的结果列表存放在一个加了索引的临时表中</strong>。在执行子查询之前，系统先将主查询挂起，待子查询执行完毕，存放在临时表中以后再执行主查询。这也就是使用EXISTS比使用IN通常查询速度快的原因。<br>in 是把外表和内表作hash 连接，而exists是对外表作loop循环，每次loop循环再对内表进行查询<br>not exists:做NL，对子查询先查，有个虚表，有确定值，所以就算子查询有NULL最终也有值返回<br>not in:做hash，对子查询表建立内存数组，用外表匹配，那子查询要是有NULL那外表没的匹配最终无值返回。</p>
+<p>一直以来认为exists比in效率高的说法是不准确的。<br><strong>如果查询的两个表大小相当，那么用in和exists差别不大。</strong><br><strong>如果两个表中一个较小，一个是大表，则子查询表大的用exists，子查询表小的用in：</strong>  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">select * from t1 where exists(select null from t2 where y=x)  </span><br><span class="line">执行流程：</span><br><span class="line">for x in(select * from t1)</span><br><span class="line">loop</span><br><span class="line">if (exists (select null from t2 where y=x.x))</span><br><span class="line">  then </span><br><span class="line">     output the record</span><br><span class="line">end if</span><br><span class="line">end loop</span><br><span class="line">通过使用EXISTS，Oracle会首先检查主查询，然后运行子查询直到它找到第一个匹配项</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-7-分组函数-row-number-over-partition-by-col1-order-by-clo2"><a href="#1-7-分组函数-row-number-over-partition-by-col1-order-by-clo2" class="headerlink" title="1.7 分组函数  row_number() over (partition by col1 order by clo2)"></a><strong>1.7 分组函数</strong>  row_number() over (partition by col1 order by clo2)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">--查出部门2和部门4第二名到第三名的员工名字，部门名字，部门位置</span><br><span class="line">select  z.* from(</span><br><span class="line">select n.*,row_number()over(partition by deptno order by sal) rank from (</span><br><span class="line">select * from(</span><br><span class="line">select e.*,d.dname,d.loc from emp e </span><br><span class="line">join dept1 d</span><br><span class="line">on e.deptno=d.deptno)m</span><br><span class="line">where deptno=2 or deptno=4)n )z</span><br><span class="line">where z.rank=3  or z.rank=2;</span><br></pre></td></tr></table></figure>
+
+<p><strong>在使用 row_number() over()函数时候，over()里头的分组以及排序的执行晚于 where 、group by、  order by 的执行。</strong></p>
+<h4 id="1-8-select-（select）-from-子查询"><a href="#1-8-select-（select）-from-子查询" class="headerlink" title="1.8 select  （select） from   子查询"></a>1.8 select  （select） from   子查询</h4><p>1：对于括号中的select只能有一个返回值</p>
+<p>2：order by 在（select）之后进行</p>
+<h3 id="怎么思考对于一个查询"><a href="#怎么思考对于一个查询" class="headerlink" title="怎么思考对于一个查询"></a>怎么思考对于一个查询</h3><p>1.1   连接查询可以做到嘛</p>
+<p>1.2  select  （select）from xx as x  的子查询可以做到嘛 </p>
 
       
 
@@ -231,7 +241,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">oracle</a>
         		</li>
       		
 		</ul>
@@ -287,7 +297,7 @@
     <a class="close js-modal-close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-<img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://zp23333.github.io/b.io/2019/11/22/chrome/" alt="微信分享二维码">
+<img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://zp23333.github.io/b.io/2020/02/05/%E5%AD%90%E6%9F%A5%E8%AF%A2/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -301,18 +311,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/11/22/picture/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          picture
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/11/22/markdown/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">markdown</div>
+    <a href="/2020/02/05/%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">多表查询</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -339,7 +340,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#子查询"><span class="toc-number">1.</span> <span class="toc-text">子查询</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-单行子查询"><span class="toc-number">1.0.1.</span> <span class="toc-text">1.1 单行子查询</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-子查询空值-多值问题"><span class="toc-number">1.0.2.</span> <span class="toc-text">1.2 子查询空值/多值问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3多行子查询"><span class="toc-number">1.0.3.</span> <span class="toc-text">1.3多行子查询</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-TopN查询"><span class="toc-number">1.0.4.</span> <span class="toc-text">1.4 TopN查询</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-5分页查询"><span class="toc-number">1.0.5.</span> <span class="toc-text">1.5分页查询</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-6-exists"><span class="toc-number">1.0.6.</span> <span class="toc-text">1.6 exists</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-7-分组函数-row-number-over-partition-by-col1-order-by-clo2"><span class="toc-number">1.0.7.</span> <span class="toc-text">1.7 分组函数  row_number() over (partition by col1 order by clo2)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-8-select-（select）-from-子查询"><span class="toc-number">1.0.8.</span> <span class="toc-text">1.8 select  （select） from   子查询</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#怎么思考对于一个查询"><span class="toc-number">1.1.</span> <span class="toc-text">怎么思考对于一个查询</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
