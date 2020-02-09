@@ -6,14 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zp23333.github.io">
-  <title>Archives: 2020 | Hexo</title>
+  <title>高级查询 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http:&#x2F;&#x2F;zp23333.github.io&#x2F;archives&#x2F;2020&#x2F;index.html">
+  <meta name="description" content="高级查询1.随机返回5条记录使用ORACLE支持的内置函数对记录进行排序11 select  ename,job,sal from emp where sal&amp;gt;2000  order by dbms_random.value  限制返回的行的数目123451 select * from 2     (3     select  ename,job,sal from emp where sal">
+<meta name="keywords" content="oracle">
+<meta property="og:type" content="article">
+<meta property="og:title" content="高级查询">
+<meta property="og:url" content="http:&#x2F;&#x2F;zp23333.github.io&#x2F;2020&#x2F;02&#x2F;09&#x2F;%E9%AB%98%E7%BA%A7%E6%9F%A5%E8%AF%A2&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="高级查询1.随机返回5条记录使用ORACLE支持的内置函数对记录进行排序11 select  ename,job,sal from emp where sal&amp;gt;2000  order by dbms_random.value  限制返回的行的数目123451 select * from 2     (3     select  ename,job,sal from emp where sal">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="http:&#x2F;&#x2F;zp23333.github.io&#x2F;2020&#x2F;02&#x2F;09&#x2F;%E9%AB%98%E7%BA%A7%E6%9F%A5%E8%AF%A2&#x2F;1.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;zp23333.github.io&#x2F;2020&#x2F;02&#x2F;09&#x2F;%E9%AB%98%E7%BA%A7%E6%9F%A5%E8%AF%A2&#x2F;2.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;zp23333.github.io&#x2F;2020&#x2F;02&#x2F;09&#x2F;%E9%AB%98%E7%BA%A7%E6%9F%A5%E8%AF%A2&#x2F;3.png">
+<meta property="og:updated_time" content="2020-02-09T15:21:45.128Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;zp23333.github.io&#x2F;2020&#x2F;02&#x2F;09&#x2F;%E9%AB%98%E7%BA%A7%E6%9F%A5%E8%AF%A2&#x2F;1.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -158,36 +166,116 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-高级查询" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      高级查询
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/09/%E9%AB%98%E7%BA%A7%E6%9F%A5%E8%AF%A2/" class="archive-article-date">
+
+        
+        <a href="/2020/02/09/%E9%AB%98%E7%BA%A7%E6%9F%A5%E8%AF%A2/" class="archive-article-date">
   	<time datetime="2020-02-09T13:55:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-09</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/09/%E9%AB%98%E7%BA%A7%E6%9F%A5%E8%AF%A2/">高级查询</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="高级查询"><a href="#高级查询" class="headerlink" title="高级查询"></a>高级查询</h2><h3 id="1-随机返回5条记录"><a href="#1-随机返回5条记录" class="headerlink" title="1.随机返回5条记录"></a>1.随机返回5条记录</h3><h4 id="使用ORACLE支持的内置函数对记录进行排序"><a href="#使用ORACLE支持的内置函数对记录进行排序" class="headerlink" title="使用ORACLE支持的内置函数对记录进行排序"></a>使用ORACLE支持的内置函数对记录进行排序</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 select  ename,job,sal from emp where sal&gt;2000  order by dbms_random.value</span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
+<h4 id="限制返回的行的数目"><a href="#限制返回的行的数目" class="headerlink" title="限制返回的行的数目"></a>限制返回的行的数目</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1 select * from </span><br><span class="line">2     (</span><br><span class="line">3     select  ename,job,sal from emp where sal&gt;2000  order by dbms_random.value</span><br><span class="line">4     ) t </span><br><span class="line">5    where  rownum&lt;=5;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"> 1 --DBMS_RANDOM</span><br><span class="line"> 2 --该包提供了内置的随机数生成器，可以用于快速生成随机数。</span><br><span class="line"> 3 --1.INITALIZE 该过程用于初始化DBMS_RANDOM包。在初始化DBMS_RANDOM包时，必须要提供随机数种子</span><br><span class="line"> 4 --2.SEED 该过程用于复位随机数种子</span><br><span class="line"> 5 --3.RANDOM 该过程用于生成随机数</span><br><span class="line"> 6 --4.TERMINATE 该过程用于关闭DBMS_RANDOM包</span><br><span class="line"> 7 --随机数使用示例</span><br><span class="line"> 8 DECLARE</span><br><span class="line"> 9    num INT;</span><br><span class="line">10    seed NUMBER:=10000000;</span><br><span class="line">11 BEGIN</span><br><span class="line">12    dbms_random.initialize(seed);</span><br><span class="line">13    FOR i IN 1..10 LOOP</span><br><span class="line">14        num:=abs(dbms_random.random()/seed);</span><br><span class="line">15        dbms_output.put_line(num);</span><br><span class="line">16    END LOOP;</span><br><span class="line">17    dbms_random.terminate;</span><br><span class="line">18 END;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-处理空值排序"><a href="#2-处理空值排序" class="headerlink" title="2.处理空值排序"></a>2.处理空值排序</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select * from emp order by comm desc null last(first)</span><br><span class="line">                                       空值放最后（放前面）</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-查询跳过表中的偶数行"><a href="#3-查询跳过表中的偶数行" class="headerlink" title="3.查询跳过表中的偶数行"></a>3.查询跳过表中的偶数行</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select ename from (select row_number () over(order by ename) rn,ename</span><br><span class="line"> from emp) x where mod(rn,2)=1;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-查询员工信息与其中工资最高最低员工"><a href="#4-查询员工信息与其中工资最高最低员工" class="headerlink" title="4.查询员工信息与其中工资最高最低员工"></a>4.查询员工信息与其中工资最高最低员工</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select  ename , sal,max(sal) over(),min(sal) over() from emp;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/02/09/%E9%AB%98%E7%BA%A7%E6%9F%A5%E8%AF%A2/1.png" alt></p>
+<h4 id="分析函数"><a href="#分析函数" class="headerlink" title="分析函数"></a>分析函数</h4><p>分析函数是Oracle专门用于解决复杂报表统计需求的功能强大的函数，它可以在数据中进行分组然后计算基于组的某种统计值，并且每一组的每一行都可以返回一个统计值。</p>
+<p>over不能单独使用，要和分析函数：rank(),dense_rank(),row_number()，sum()等一起使用。</p>
+<p>over函数的参数：over（partition by columnname1 order by columnname2）</p>
+<p>含义，按columname1指定的字段进行分组排序，或者说按字段columnname1的值进行分组排序。</p>
+<p>例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">select deptno,ename,sal,</span><br><span class="line"></span><br><span class="line">sum(sal) over (partition by deptno order by ename) 部门连续求和,--各部门的薪水&quot;连续&quot;求和</span><br><span class="line"></span><br><span class="line">sum(sal) over (partition by deptno) 部门总和, -- 部门统计的总和，同一部门总和不变</span><br><span class="line"></span><br><span class="line">100*round(sal/sum(sal) over (partition by deptno),4) &quot;部门份额(%)&quot;,</span><br><span class="line"></span><br><span class="line">sum(sal) over (order by deptno,ename) 连续求和, --所有部门的薪水&quot;连续&quot;求和</span><br><span class="line"></span><br><span class="line">sum(sal) over () 总和, -- 此处sum(sal) over () 等同于sum(sal)，所有员工的薪水总和</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="连续求和"><a href="#连续求和" class="headerlink" title="连续求和"></a>连续求和</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select ename,sal,sum(sal) over(),sum(sal) over(order by ename) from emp;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>sum(sal) over(order by ename)<br>指的是连续求和，是以ename来排序的，若有两个这样的窗口函数，以后面的排序为主。</p>
+</blockquote>
+<p><img src="/2020/02/09/%E9%AB%98%E7%BA%A7%E6%9F%A5%E8%AF%A2/2.png" alt></p>
+<h2 id="分部门连续求和"><a href="#分部门连续求和" class="headerlink" title="分部门连续求和"></a>分部门连续求和</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select deptno,sal,sum(sal) over (partition by deptno order by ename) as s from emp;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/02/09/%E9%AB%98%E7%BA%A7%E6%9F%A5%E8%AF%A2/3.png" alt></p>
+<h2 id="得到上一行或下一行的数据"><a href="#得到上一行或下一行的数据" class="headerlink" title="得到上一行或下一行的数据"></a>得到上一行或下一行的数据</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select ename,sal,lead(sal) over (order by sal) aaa,lag(sal) over(order by sal) bbb from emp;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>统计每月及上个月和下个月的总收入 月份month 人员person 收入income</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select [month] ,sum([income]),lead(sum ([income])) over(order by sum([income]))   from [table] group by [month];</span><br></pre></td></tr></table></figure>
+
+<p>LAG()和LEAD()统计函数可以在一次查询中取出同一字段的前N行的数据和后N行的值</p>
+<p>前         后</p>
+<h2 id="根据子串分组"><a href="#根据子串分组" class="headerlink" title="根据子串分组"></a>根据子串分组</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select to_char(hiredate,&apos;yyyy&apos;),avg(sal) from emp group by to_char(hiredate,&apos;yyyy&apos;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="确定一年的天数"><a href="#确定一年的天数" class="headerlink" title="确定一年的天数"></a>确定一年的天数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select add_months(trunc(sysdate,&apos;y&apos;),12)-trunc(sysdate,&apos;y&apos;)  as 天数 from dual;</span><br></pre></td></tr></table></figure>
+
+<h3 id="查询emp员工表下每个部门工资前二名的员工信息"><a href="#查询emp员工表下每个部门工资前二名的员工信息" class="headerlink" title="查询emp员工表下每个部门工资前二名的员工信息"></a>查询emp员工表下每个部门工资前二名的员工信息</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select deptno,ename,sal from emp e1 where (select count(1) from emp e2 where e2.deptno=e1.deptno and e2.ename!=e1.ename and e2.sal&gt;e1.sal)&lt;2 order by deptno, sal desc;</span><br></pre></td></tr></table></figure>
+
+<p>2.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from (select deptno ,ename,sal,row_number() over (partition by deptno order by sal desc) rn  from emp)  where rn&lt;3;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" target="_blank" rel="noopener" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -199,247 +287,119 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" target="_blank" rel="noopener" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" target="_blank" rel="noopener" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+<img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://zp23333.github.io/b.io/2020/02/09/%E9%AB%98%E7%BA%A7%E6%9F%A5%E8%AF%A2/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/05/%E5%AD%90%E6%9F%A5%E8%AF%A2/" class="archive-article-date">
-  	<time datetime="2020-02-05T08:02:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-05</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/02/05/%E5%AD%90%E6%9F%A5%E8%AF%A2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">子查询</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/05/%E5%AD%90%E6%9F%A5%E8%AF%A2/">子查询</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">oracle</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#高级查询"><span class="toc-number">1.</span> <span class="toc-text">高级查询</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-随机返回5条记录"><span class="toc-number">1.1.</span> <span class="toc-text">1.随机返回5条记录</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#使用ORACLE支持的内置函数对记录进行排序"><span class="toc-number">1.1.1.</span> <span class="toc-text">使用ORACLE支持的内置函数对记录进行排序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#限制返回的行的数目"><span class="toc-number">1.1.2.</span> <span class="toc-text">限制返回的行的数目</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-处理空值排序"><span class="toc-number">1.2.</span> <span class="toc-text">2.处理空值排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-查询跳过表中的偶数行"><span class="toc-number">1.3.</span> <span class="toc-text">3.查询跳过表中的偶数行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-查询员工信息与其中工资最高最低员工"><span class="toc-number">1.4.</span> <span class="toc-text">4.查询员工信息与其中工资最高最低员工</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#分析函数"><span class="toc-number">1.4.1.</span> <span class="toc-text">分析函数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#连续求和"><span class="toc-number">2.</span> <span class="toc-text">连续求和</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分部门连续求和"><span class="toc-number">3.</span> <span class="toc-text">分部门连续求和</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#得到上一行或下一行的数据"><span class="toc-number">4.</span> <span class="toc-text">得到上一行或下一行的数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#根据子串分组"><span class="toc-number">5.</span> <span class="toc-text">根据子串分组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#确定一年的天数"><span class="toc-number">6.</span> <span class="toc-text">确定一年的天数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#查询emp员工表下每个部门工资前二名的员工信息"><span class="toc-number">6.1.</span> <span class="toc-text">查询emp员工表下每个部门工资前二名的员工信息</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/05/%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/" class="archive-article-date">
-  	<time datetime="2020-02-05T07:19:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-05</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/05/%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/">多表查询</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">oracle</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/23/oracle-%E5%85%A5%E9%97%A8/" class="archive-article-date">
-  	<time datetime="2020-01-23T08:18:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/23/oracle-%E5%85%A5%E9%97%A8/">oracle-入门</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">oracle</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/19/Linux-3/" class="archive-article-date">
-  	<time datetime="2020-01-19T13:23:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/19/Linux-3/">Linux-3</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/17/Linux-2/" class="archive-article-date">
-  	<time datetime="2020-01-17T07:09:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/17/Linux-2/">Linux-2</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/17/Linux-1/" class="archive-article-date">
-  	<time datetime="2020-01-17T06:42:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/17/Linux-1/">Linux-1</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -468,8 +428,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
