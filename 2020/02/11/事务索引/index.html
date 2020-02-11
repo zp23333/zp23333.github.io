@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zp23333.github.io">
-  <title>chrome | Hexo</title>
+  <title>事务索引 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="把下载后的.crx扩展名的离线Chrome插件的文件扩展名改成.zip或者.rar（如何查看Chrome插件的扩展名？文件夹&amp;gt;工具&amp;gt;文件夹&amp;gt;查看&amp;gt;隐藏已知文件类型的扩展名）">
-<meta name="keywords" content="随笔">
+  <meta name="description" content="事务不同的两个客户端  =    非共享">
+<meta name="keywords" content="oracle">
 <meta property="og:type" content="article">
-<meta property="og:title" content="chrome">
-<meta property="og:url" content="http:&#x2F;&#x2F;zp23333.github.io&#x2F;2019&#x2F;11&#x2F;22&#x2F;chrome&#x2F;index.html">
+<meta property="og:title" content="事务索引">
+<meta property="og:url" content="http:&#x2F;&#x2F;zp23333.github.io&#x2F;2020&#x2F;02&#x2F;11&#x2F;%E4%BA%8B%E5%8A%A1%E7%B4%A2%E5%BC%95&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="把下载后的.crx扩展名的离线Chrome插件的文件扩展名改成.zip或者.rar（如何查看Chrome插件的扩展名？文件夹&amp;gt;工具&amp;gt;文件夹&amp;gt;查看&amp;gt;隐藏已知文件类型的扩展名）">
+<meta property="og:description" content="事务不同的两个客户端  =    非共享">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-11-22T00:52:31.082Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;zp23333.github.io&#x2F;2020&#x2F;02&#x2F;11&#x2F;%E4%BA%8B%E5%8A%A1%E7%B4%A2%E5%BC%95&#x2F;btree.png">
+<meta property="og:updated_time" content="2020-02-11T13:09:12.899Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;zp23333.github.io&#x2F;2020&#x2F;02&#x2F;11&#x2F;%E4%BA%8B%E5%8A%A1%E7%B4%A2%E5%BC%95&#x2F;btree.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -162,41 +164,71 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-chrome" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-事务索引" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      chrome
+      事务索引
     </h1>
   
 
         
-        <a href="/2019/11/22/chrome/" class="archive-article-date">
-  	<time datetime="2019-11-22T00:45:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-22</time>
+        <a href="/2020/02/11/%E4%BA%8B%E5%8A%A1%E7%B4%A2%E5%BC%95/" class="archive-article-date">
+  	<time datetime="2020-02-11T08:58:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-11</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ul>
-<li><p>把下载后的.crx扩展名的离线Chrome插件的文件扩展名改成.zip或者.rar（如何查看Chrome插件的扩展名？文件夹&gt;工具&gt;文件夹&gt;查看&gt;隐藏已知文件类型的扩展名）</p>
+        <h2 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h2><p>不同的两个客户端  =    非共享</p>
 <a id="more"></a>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">顺序</span><br><span class="line">	connection    连接</span><br><span class="line">	session       会话</span><br><span class="line">	transcation   事务</span><br><span class="line">	多条sql语句</span><br><span class="line"></span><br><span class="line">commit 提交事务</span><br></pre></td></tr></table></figure>
+
+<h3 id="事务-1"><a href="#事务-1" class="headerlink" title="事务"></a>事务</h3><p>一次会话中从上一个commit到下一个commit之间的</p>
+<p>一条或者多条sql语句集合</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">原子性</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">隔离性</span><br><span class="line">select 共享锁   表级锁  所有人都可以查询</span><br><span class="line">update  在对应行上  排他锁  行级锁  更新/删除</span><br><span class="line"></span><br><span class="line">一致性</span><br><span class="line">commit 之后有</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">持久性</span><br><span class="line">提交后永久有效</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">update bank  set breset=breset-1000   where bno=1</span><br><span class="line"></span><br><span class="line">select            共享锁   表级锁  所有人都可以查询修改</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">update  在对应行上  排他锁  行级锁  更新/删除</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">commit  </span><br><span class="line"></span><br><span class="line">rollback  回滚  默认回滚到上一个commit状态</span><br><span class="line">rollback to s1</span><br><span class="line">经过commit后回滚无能为力</span><br><span class="line"></span><br><span class="line">savepoint  s1  回滚点</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">脏数据       读取     脏读</span><br></pre></td></tr></table></figure>
+
+<h2 id="索引相当于目录"><a href="#索引相当于目录" class="headerlink" title="索引相当于目录"></a>索引相当于目录</h2><ul>
+<li>一种用于提升查询效率的数据库对象</li>
+<li>通过快速定位数据的方法，减少磁盘的I/o操作</li>
+<li>索引信息与表独立存放</li>
+<li>自动使用和维护</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">--查询现有的索引</span><br><span class="line">select * from user_indexes;</span><br><span class="line">--获知索引建立在那些字段上</span><br><span class="line">select * from user_ind_columns;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>查询结果是所有数据行的百分之5一下</p>
 </li>
-<li><p>右键点击该文件，并使用压缩软件（如winrar、好压、360压缩等）对该压缩文件进行解压，并保存到系统的一个任意文件夹下；</p>
+<li><p>where 子句的字段 必须是复合索引的第一个字段</p>
 </li>
-<li><p>解压成功以后，该Chrome插件就会以文件夹的形式存在于操作系统的某一个目录下面；</p>
+<li><p>where子句这个字段不参加任何计算</p>
 </li>
-<li><p>在Chrome的地址栏中输入：chrome://extensions/ 打开Chrome浏览器的扩展程序管理界面，并在该界面的右上方的开发者模式按钮上打勾；</p>
-</li>
-<li><p>在勾选开发者模式选项以后，在该页面就会出现加载正在开发的扩展程序等按钮，点击“加载正在开发的扩展程序”按钮，并选择刚刚解压的Chrome插件文件夹的位置；</p>
-</li>
-<li><p>这时候如果不出意外，Chrome插件就会成功加载到谷歌浏览器中。但是如果运气不好也有意外的情况；</p>
+<li><p>下列操作符阻止使用索引</p>
+<p>1  is null</p>
+<p>2  is not null</p>
+<p>3 not in</p>
+<p>4 !=</p>
+<p>5 like</p>
+<p>6 to_char</p>
+<p>7 to_number</p>
+<p>8 to_date</p>
 </li>
 </ul>
+<h3 id="建立索引"><a href="#建立索引" class="headerlink" title="建立索引"></a>建立索引</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">主键或者唯一约束  会自动创建唯一性索引</span><br><span class="line"></span><br><span class="line">create index  索引名 on 表名 (字段名)</span><br><span class="line">create index abc on student(sid,sname);</span><br><span class="line">create index abcd on student(sname,sid);</span><br><span class="line">字段组合顺序对索引的效率会有影响  sid 对abc 更加有效</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">DB建立一个独立于表之外的文件（B+数据结构）</span><br><span class="line">维护 应用索引</span><br><span class="line">   系统自动维护  系统 自动应用</span><br><span class="line">   </span><br><span class="line">drop index 索引名</span><br><span class="line"></span><br><span class="line">什么时候适合建立索引</span><br><span class="line">1/不建议表中所有字段建立索引</span><br><span class="line">2/不建议字段重复数较多</span><br><span class="line">3/     字段经常变更</span><br><span class="line">4/     空值多</span><br><span class="line"></span><br><span class="line">经常修改的索引怎么增加效率？</span><br><span class="line">读写分离</span><br><span class="line">数据库的读---&gt;select</span><br><span class="line"></span><br><span class="line">---&gt;写  update insert delete 操作 分离</span><br><span class="line"></span><br><span class="line">每隔一段时间---&gt;索引同步</span><br></pre></td></tr></table></figure>
+
+<p>始终保持有序的数据结构</p>
+<h3 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">数组</span><br><span class="line">o(1)  首地址+偏移量-&gt;直接获取物理内存地址</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">红黑树</span><br><span class="line">通过左旋 右旋 变换节点的颜色（红色，黑色）始终保持有序状态</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">b+tree  多路平衡树（链表+数）索引的数据结构</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/02/11/%E4%BA%8B%E5%8A%A1%E7%B4%A2%E5%BC%95/btree.png" alt></p>
 
       
 
@@ -231,7 +263,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">oracle</a>
         		</li>
       		
 		</ul>
@@ -287,7 +319,7 @@
     <a class="close js-modal-close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-<img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://zp23333.github.io/b.io/2019/11/22/chrome/" alt="微信分享二维码">
+<img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://zp23333.github.io/b.io/2020/02/11/%E4%BA%8B%E5%8A%A1%E7%B4%A2%E5%BC%95/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -301,18 +333,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/11/22/picture/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/02/11/sql%E4%BC%98%E5%8C%96%E5%92%8C%E5%BA%8F%E5%88%97%E5%90%8C%E4%B9%89%E8%AF%8D/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          picture
+          sql优化和序列同义词
         
       </div>
     </a>
   
   
-    <a href="/2019/11/22/markdown/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">markdown</div>
+    <a href="/2020/02/10/%E7%BA%A6%E6%9D%9F%E5%92%8C%E8%A7%86%E5%9B%BE/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">约束和视图</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -339,7 +371,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#事务"><span class="toc-number">1.</span> <span class="toc-text">事务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#事务-1"><span class="toc-number">1.1.</span> <span class="toc-text">事务</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#索引相当于目录"><span class="toc-number">2.</span> <span class="toc-text">索引相当于目录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#建立索引"><span class="toc-number">2.1.</span> <span class="toc-text">建立索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据结构"><span class="toc-number">2.2.</span> <span class="toc-text">数据结构</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>

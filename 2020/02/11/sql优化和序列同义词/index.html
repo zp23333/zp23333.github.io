@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zp23333.github.io">
-  <title>chrome | Hexo</title>
+  <title>sql优化和序列同义词 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="把下载后的.crx扩展名的离线Chrome插件的文件扩展名改成.zip或者.rar（如何查看Chrome插件的扩展名？文件夹&amp;gt;工具&amp;gt;文件夹&amp;gt;查看&amp;gt;隐藏已知文件类型的扩展名）">
-<meta name="keywords" content="随笔">
+  <meta name="description" content="sql优化删除一张表的重复记录 1234567891011121314151617Tid name age1  a  102  a  103  b  114  c  12做法一： 慢 没有索引delete  from T where id not in (select min(id) from T group by name,age);做法二: 略快delete from t where id i">
+<meta name="keywords" content="oracle">
 <meta property="og:type" content="article">
-<meta property="og:title" content="chrome">
-<meta property="og:url" content="http:&#x2F;&#x2F;zp23333.github.io&#x2F;2019&#x2F;11&#x2F;22&#x2F;chrome&#x2F;index.html">
+<meta property="og:title" content="sql优化和序列同义词">
+<meta property="og:url" content="http:&#x2F;&#x2F;zp23333.github.io&#x2F;2020&#x2F;02&#x2F;11&#x2F;sql%E4%BC%98%E5%8C%96%E5%92%8C%E5%BA%8F%E5%88%97%E5%90%8C%E4%B9%89%E8%AF%8D&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="把下载后的.crx扩展名的离线Chrome插件的文件扩展名改成.zip或者.rar（如何查看Chrome插件的扩展名？文件夹&amp;gt;工具&amp;gt;文件夹&amp;gt;查看&amp;gt;隐藏已知文件类型的扩展名）">
+<meta property="og:description" content="sql优化删除一张表的重复记录 1234567891011121314151617Tid name age1  a  102  a  103  b  114  c  12做法一： 慢 没有索引delete  from T where id not in (select min(id) from T group by name,age);做法二: 略快delete from t where id i">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-11-22T00:52:31.082Z">
+<meta property="og:updated_time" content="2020-02-11T16:34:19.849Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -162,41 +162,68 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-chrome" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-sql优化和序列同义词" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      chrome
+      sql优化和序列同义词
     </h1>
   
 
         
-        <a href="/2019/11/22/chrome/" class="archive-article-date">
-  	<time datetime="2019-11-22T00:45:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-22</time>
+        <a href="/2020/02/11/sql%E4%BC%98%E5%8C%96%E5%92%8C%E5%BA%8F%E5%88%97%E5%90%8C%E4%B9%89%E8%AF%8D/" class="archive-article-date">
+  	<time datetime="2020-02-11T13:09:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-11</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ul>
-<li><p>把下载后的.crx扩展名的离线Chrome插件的文件扩展名改成.zip或者.rar（如何查看Chrome插件的扩展名？文件夹&gt;工具&gt;文件夹&gt;查看&gt;隐藏已知文件类型的扩展名）</p>
-<a id="more"></a>
-</li>
-<li><p>右键点击该文件，并使用压缩软件（如winrar、好压、360压缩等）对该压缩文件进行解压，并保存到系统的一个任意文件夹下；</p>
-</li>
-<li><p>解压成功以后，该Chrome插件就会以文件夹的形式存在于操作系统的某一个目录下面；</p>
-</li>
-<li><p>在Chrome的地址栏中输入：chrome://extensions/ 打开Chrome浏览器的扩展程序管理界面，并在该界面的右上方的开发者模式按钮上打勾；</p>
-</li>
-<li><p>在勾选开发者模式选项以后，在该页面就会出现加载正在开发的扩展程序等按钮，点击“加载正在开发的扩展程序”按钮，并选择刚刚解压的Chrome插件文件夹的位置；</p>
-</li>
-<li><p>这时候如果不出意外，Chrome插件就会成功加载到谷歌浏览器中。但是如果运气不好也有意外的情况；</p>
-</li>
+        <h2 id="sql优化"><a href="#sql优化" class="headerlink" title="sql优化"></a>sql优化</h2><p><strong>删除一张表的重复记录</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">T</span><br><span class="line">id name age</span><br><span class="line">1  a  10</span><br><span class="line">2  a  10</span><br><span class="line">3  b  11</span><br><span class="line">4  c  12</span><br><span class="line">做法一： 慢 没有索引</span><br><span class="line">delete  from T where id not in (select min(id) from T group by name,age);</span><br><span class="line">做法二: 略快</span><br><span class="line">delete from t where id in </span><br><span class="line">(select distinct a2.id from t a1,t a2 where a1.id&gt;a2.id and a1.name=a2.name</span><br><span class="line"> and a1.age=a2.age);</span><br><span class="line">做法三： 最佳</span><br><span class="line">delete from t a1 where not exists( select *</span><br><span class="line">from t a2</span><br><span class="line">where a1.id&gt;a2.id and a1.name=a2.name and a1.age=a2.age</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-尽量少用in操作符"><a href="#1-尽量少用in操作符" class="headerlink" title="1.尽量少用in操作符"></a>1.尽量少用in操作符</h4><p>根据表大小选择in 还是 exists  子表大选exists</p>
+<h4 id="2-尽量用not-exists-或者外连接代替-not-in"><a href="#2-尽量用not-exists-或者外连接代替-not-in" class="headerlink" title="2.尽量用not exists 或者外连接代替 not in"></a>2.尽量用not exists 或者外连接代替 not in</h4><p>not in 不能应用索引</p>
+<h4 id="3-尽量不用-lt-gt-或者"><a href="#3-尽量不用-lt-gt-或者" class="headerlink" title="3.尽量不用&lt;&gt;或者!="></a>3.尽量不用&lt;&gt;或者!=</h4><p>不会用到索引 ，只能扫描全表 </p>
+<p>a&lt;&gt;0 改为 a&gt;0 or a&lt;0</p>
+<h4 id="4-在设计表时，把索引字段设为not-null"><a href="#4-在设计表时，把索引字段设为not-null" class="headerlink" title="4.在设计表时，把索引字段设为not null"></a>4.在设计表时，把索引字段设为not null</h4><p>B数索引不引用空值</p>
+<h4 id="5-尽量不用通配符”-”-或”-”作为查询字符串的第一个字符"><a href="#5-尽量不用通配符”-”-或”-”作为查询字符串的第一个字符" class="headerlink" title="5.尽量不用通配符”%” 或”_”作为查询字符串的第一个字符"></a><strong>5.尽量不用通配符”%” 或”_”作为查询字符串的第一个字符</strong></h4><p>% 一个或者多个字符</p>
+<p>使用这两个开头没有索引，相当于全表扫描</p>
+<h4 id="6-where-子句中避免在索引字段上使用计算"><a href="#6-where-子句中避免在索引字段上使用计算" class="headerlink" title="6.where 子句中避免在索引字段上使用计算"></a>6.where 子句中避免在索引字段上使用计算</h4><p>substr(‘123456’,3,2);  结果是–34 相当于计算</p>
+<h4 id="7-用-gt-替代-gt"><a href="#7-用-gt-替代-gt" class="headerlink" title="7.用&gt;=替代&gt;"></a>7.用&gt;=替代&gt;</h4><p>A&gt;2 先找出为2的记录，然后再进行比较</p>
+<p>A&gt;=3 直接找到=3的记录索引</p>
+<h4 id="8-利用SGA共享池避开parse阶段"><a href="#8-利用SGA共享池避开parse阶段" class="headerlink" title="8.利用SGA共享池避开parse阶段"></a>8.利用SGA共享池避开parse阶段</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">同一代码对于不同的程序员有不同的写法</span><br><span class="line">例如：</span><br><span class="line">带表的所有者的前缀</span><br><span class="line">大写表名</span><br><span class="line">中间多了空格</span><br><span class="line"></span><br><span class="line">Oracle对每个sql都会对其进行解析，并且占用共享内存，如果sql字符串格式写的一致，那么Oracle只会分析一次，减少分析sql的时间，减少共享内存重复的信息</span><br></pre></td></tr></table></figure>
+
+<h4 id="9-where后面的条件顺序要求"><a href="#9-where后面的条件顺序要求" class="headerlink" title="9.where后面的条件顺序要求"></a>9.where后面的条件顺序要求</h4><p>把可以过滤掉最大数量记录的条件局后</p>
+<h4 id="10-使用表的别名，并将之作为每列的前缀"><a href="#10-使用表的别名，并将之作为每列的前缀" class="headerlink" title="10.使用表的别名，并将之作为每列的前缀"></a>10.使用表的别名，并将之作为每列的前缀</h4><p>减少一定的解析时间</p>
+<h4 id="11-进行了显示或隐式的运算的字段不能进行索引"><a href="#11-进行了显示或隐式的运算的字段不能进行索引" class="headerlink" title="11.进行了显示或隐式的运算的字段不能进行索引"></a>11.进行了显示或隐式的运算的字段不能进行索引</h4><p>a+20&gt;50     优化     a&gt;30</p>
+<p>date+5=sysdate    date=sysdate-5</p>
+<h4 id="12-用union-all-代替-union"><a href="#12-用union-all-代替-union" class="headerlink" title="12.用union all  代替 union"></a>12.用union all  代替 union</h4><p>union交集，对返回数据行有唯一性要求</p>
+<p>union all 操作不会排除重复记录行 会快很多</p>
+<h4 id="13-其他操作"><a href="#13-其他操作" class="headerlink" title="13.其他操作"></a>13.其他操作</h4><ul>
+<li>使用package</li>
+<li>尽量使用cached sequences 来生成primary key ：提高主键生成速度和性能</li>
+<li>利用好空间 如：varchar2 代替char</li>
+<li>sql优化工具：explain-table  ;sqlexpert ;toad;PL/SQL</li>
 </ul>
+<h4 id="14-通过改变oracle的SGA大小"><a href="#14-通过改变oracle的SGA大小" class="headerlink" title="14.通过改变oracle的SGA大小"></a>14.通过改变oracle的SGA大小</h4><h2 id="序列，同义词"><a href="#序列，同义词" class="headerlink" title="序列，同义词"></a>序列，同义词</h2><p><strong>创建序列</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">create sequence myseq</span><br><span class="line">start with 1</span><br><span class="line">increment by 1</span><br><span class="line">order</span><br><span class="line">cache 20</span><br><span class="line">nocycle;</span><br></pre></td></tr></table></figure>
+
+<p><strong>使用序列</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">select myseq.nextval from dual;  输入才有1</span><br><span class="line">select mysql.currval from dual</span><br><span class="line">现有nextval  后有currval</span><br><span class="line">insert into table values(myseq.nextval) 这个时候已经是2</span><br></pre></td></tr></table></figure>
+
+<p>cycle ，cache</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">create sequence myseq2</span><br><span class="line">start with 1</span><br><span class="line">increment by 1</span><br><span class="line">cycle maxvalue 3</span><br><span class="line">nocache</span><br><span class="line">到3后自动回1</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">alter sequence myseq1 increment by 3;</span><br><span class="line">改变增量</span><br><span class="line">drop sequence myseq1;</span><br></pre></td></tr></table></figure>
+
+<h3 id="同义词"><a href="#同义词" class="headerlink" title="同义词"></a>同义词</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">create public synonym dept for scott.dept  创建公共的同义词 对scott下的dept  叫dept</span><br><span class="line">drop public synonym dept;</span><br><span class="line"></span><br><span class="line">非公有去掉public</span><br></pre></td></tr></table></figure>
+
+
+
 
       
 
@@ -231,7 +258,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">oracle</a>
         		</li>
       		
 		</ul>
@@ -287,7 +314,7 @@
     <a class="close js-modal-close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-<img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://zp23333.github.io/b.io/2019/11/22/chrome/" alt="微信分享二维码">
+<img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://zp23333.github.io/b.io/2020/02/11/sql%E4%BC%98%E5%8C%96%E5%92%8C%E5%BA%8F%E5%88%97%E5%90%8C%E4%B9%89%E8%AF%8D/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -301,18 +328,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/11/22/picture/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          picture
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/11/22/markdown/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">markdown</div>
+    <a href="/2020/02/11/%E4%BA%8B%E5%8A%A1%E7%B4%A2%E5%BC%95/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">事务索引</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -339,7 +357,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#sql优化"><span class="toc-number">1.</span> <span class="toc-text">sql优化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-尽量少用in操作符"><span class="toc-number">1.0.1.</span> <span class="toc-text">1.尽量少用in操作符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-尽量用not-exists-或者外连接代替-not-in"><span class="toc-number">1.0.2.</span> <span class="toc-text">2.尽量用not exists 或者外连接代替 not in</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-尽量不用-lt-gt-或者"><span class="toc-number">1.0.3.</span> <span class="toc-text">3.尽量不用&lt;&gt;或者!=</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-在设计表时，把索引字段设为not-null"><span class="toc-number">1.0.4.</span> <span class="toc-text">4.在设计表时，把索引字段设为not null</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-尽量不用通配符”-”-或”-”作为查询字符串的第一个字符"><span class="toc-number">1.0.5.</span> <span class="toc-text">5.尽量不用通配符”%” 或”_”作为查询字符串的第一个字符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-where-子句中避免在索引字段上使用计算"><span class="toc-number">1.0.6.</span> <span class="toc-text">6.where 子句中避免在索引字段上使用计算</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-用-gt-替代-gt"><span class="toc-number">1.0.7.</span> <span class="toc-text">7.用&gt;=替代&gt;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-利用SGA共享池避开parse阶段"><span class="toc-number">1.0.8.</span> <span class="toc-text">8.利用SGA共享池避开parse阶段</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-where后面的条件顺序要求"><span class="toc-number">1.0.9.</span> <span class="toc-text">9.where后面的条件顺序要求</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10-使用表的别名，并将之作为每列的前缀"><span class="toc-number">1.0.10.</span> <span class="toc-text">10.使用表的别名，并将之作为每列的前缀</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#11-进行了显示或隐式的运算的字段不能进行索引"><span class="toc-number">1.0.11.</span> <span class="toc-text">11.进行了显示或隐式的运算的字段不能进行索引</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#12-用union-all-代替-union"><span class="toc-number">1.0.12.</span> <span class="toc-text">12.用union all  代替 union</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#13-其他操作"><span class="toc-number">1.0.13.</span> <span class="toc-text">13.其他操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#14-通过改变oracle的SGA大小"><span class="toc-number">1.0.14.</span> <span class="toc-text">14.通过改变oracle的SGA大小</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#序列，同义词"><span class="toc-number">2.</span> <span class="toc-text">序列，同义词</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#同义词"><span class="toc-number">2.1.</span> <span class="toc-text">同义词</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>

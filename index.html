@@ -160,6 +160,197 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-sql优化和序列同义词" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/11/sql%E4%BC%98%E5%8C%96%E5%92%8C%E5%BA%8F%E5%88%97%E5%90%8C%E4%B9%89%E8%AF%8D/">sql优化和序列同义词</a>
+    </h1>
+  
+
+        
+        <a href="/2020/02/11/sql%E4%BC%98%E5%8C%96%E5%92%8C%E5%BA%8F%E5%88%97%E5%90%8C%E4%B9%89%E8%AF%8D/" class="archive-article-date">
+  	<time datetime="2020-02-11T13:09:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="sql优化"><a href="#sql优化" class="headerlink" title="sql优化"></a>sql优化</h2><p><strong>删除一张表的重复记录</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">T</span><br><span class="line">id name age</span><br><span class="line">1  a  10</span><br><span class="line">2  a  10</span><br><span class="line">3  b  11</span><br><span class="line">4  c  12</span><br><span class="line">做法一： 慢 没有索引</span><br><span class="line">delete  from T where id not in (select min(id) from T group by name,age);</span><br><span class="line">做法二: 略快</span><br><span class="line">delete from t where id in </span><br><span class="line">(select distinct a2.id from t a1,t a2 where a1.id&gt;a2.id and a1.name=a2.name</span><br><span class="line"> and a1.age=a2.age);</span><br><span class="line">做法三： 最佳</span><br><span class="line">delete from t a1 where not exists( select *</span><br><span class="line">from t a2</span><br><span class="line">where a1.id&gt;a2.id and a1.name=a2.name and a1.age=a2.age</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-尽量少用in操作符"><a href="#1-尽量少用in操作符" class="headerlink" title="1.尽量少用in操作符"></a>1.尽量少用in操作符</h4><p>根据表大小选择in 还是 exists  子表大选exists</p>
+<h4 id="2-尽量用not-exists-或者外连接代替-not-in"><a href="#2-尽量用not-exists-或者外连接代替-not-in" class="headerlink" title="2.尽量用not exists 或者外连接代替 not in"></a>2.尽量用not exists 或者外连接代替 not in</h4><p>not in 不能应用索引</p>
+<h4 id="3-尽量不用-lt-gt-或者"><a href="#3-尽量不用-lt-gt-或者" class="headerlink" title="3.尽量不用&lt;&gt;或者!="></a>3.尽量不用&lt;&gt;或者!=</h4><p>不会用到索引 ，只能扫描全表 </p>
+<p>a&lt;&gt;0 改为 a&gt;0 or a&lt;0</p>
+<h4 id="4-在设计表时，把索引字段设为not-null"><a href="#4-在设计表时，把索引字段设为not-null" class="headerlink" title="4.在设计表时，把索引字段设为not null"></a>4.在设计表时，把索引字段设为not null</h4><p>B数索引不引用空值</p>
+<h4 id="5-尽量不用通配符”-”-或”-”作为查询字符串的第一个字符"><a href="#5-尽量不用通配符”-”-或”-”作为查询字符串的第一个字符" class="headerlink" title="5.尽量不用通配符”%” 或”_”作为查询字符串的第一个字符"></a><strong>5.尽量不用通配符”%” 或”_”作为查询字符串的第一个字符</strong></h4><p>% 一个或者多个字符</p>
+<p>使用这两个开头没有索引，相当于全表扫描</p>
+<h4 id="6-where-子句中避免在索引字段上使用计算"><a href="#6-where-子句中避免在索引字段上使用计算" class="headerlink" title="6.where 子句中避免在索引字段上使用计算"></a>6.where 子句中避免在索引字段上使用计算</h4><p>substr(‘123456’,3,2);  结果是–34 相当于计算</p>
+<h4 id="7-用-gt-替代-gt"><a href="#7-用-gt-替代-gt" class="headerlink" title="7.用&gt;=替代&gt;"></a>7.用&gt;=替代&gt;</h4><p>A&gt;2 先找出为2的记录，然后再进行比较</p>
+<p>A&gt;=3 直接找到=3的记录索引</p>
+<h4 id="8-利用SGA共享池避开parse阶段"><a href="#8-利用SGA共享池避开parse阶段" class="headerlink" title="8.利用SGA共享池避开parse阶段"></a>8.利用SGA共享池避开parse阶段</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">同一代码对于不同的程序员有不同的写法</span><br><span class="line">例如：</span><br><span class="line">带表的所有者的前缀</span><br><span class="line">大写表名</span><br><span class="line">中间多了空格</span><br><span class="line"></span><br><span class="line">Oracle对每个sql都会对其进行解析，并且占用共享内存，如果sql字符串格式写的一致，那么Oracle只会分析一次，减少分析sql的时间，减少共享内存重复的信息</span><br></pre></td></tr></table></figure>
+
+<h4 id="9-where后面的条件顺序要求"><a href="#9-where后面的条件顺序要求" class="headerlink" title="9.where后面的条件顺序要求"></a>9.where后面的条件顺序要求</h4><p>把可以过滤掉最大数量记录的条件局后</p>
+<h4 id="10-使用表的别名，并将之作为每列的前缀"><a href="#10-使用表的别名，并将之作为每列的前缀" class="headerlink" title="10.使用表的别名，并将之作为每列的前缀"></a>10.使用表的别名，并将之作为每列的前缀</h4><p>减少一定的解析时间</p>
+<h4 id="11-进行了显示或隐式的运算的字段不能进行索引"><a href="#11-进行了显示或隐式的运算的字段不能进行索引" class="headerlink" title="11.进行了显示或隐式的运算的字段不能进行索引"></a>11.进行了显示或隐式的运算的字段不能进行索引</h4><p>a+20&gt;50     优化     a&gt;30</p>
+<p>date+5=sysdate    date=sysdate-5</p>
+<h4 id="12-用union-all-代替-union"><a href="#12-用union-all-代替-union" class="headerlink" title="12.用union all  代替 union"></a>12.用union all  代替 union</h4><p>union交集，对返回数据行有唯一性要求</p>
+<p>union all 操作不会排除重复记录行 会快很多</p>
+<h4 id="13-其他操作"><a href="#13-其他操作" class="headerlink" title="13.其他操作"></a>13.其他操作</h4><ul>
+<li>使用package</li>
+<li>尽量使用cached sequences 来生成primary key ：提高主键生成速度和性能</li>
+<li>利用好空间 如：varchar2 代替char</li>
+<li>sql优化工具：explain-table  ;sqlexpert ;toad;PL/SQL</li>
+</ul>
+<h4 id="14-通过改变oracle的SGA大小"><a href="#14-通过改变oracle的SGA大小" class="headerlink" title="14.通过改变oracle的SGA大小"></a>14.通过改变oracle的SGA大小</h4><h2 id="序列，同义词"><a href="#序列，同义词" class="headerlink" title="序列，同义词"></a>序列，同义词</h2><p><strong>创建序列</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">create sequence myseq</span><br><span class="line">start with 1</span><br><span class="line">increment by 1</span><br><span class="line">order</span><br><span class="line">cache 20</span><br><span class="line">nocycle;</span><br></pre></td></tr></table></figure>
+
+<p><strong>使用序列</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">select myseq.nextval from dual;  输入才有1</span><br><span class="line">select mysql.currval from dual</span><br><span class="line">现有nextval  后有currval</span><br><span class="line">insert into table values(myseq.nextval) 这个时候已经是2</span><br></pre></td></tr></table></figure>
+
+<p>cycle ，cache</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">create sequence myseq2</span><br><span class="line">start with 1</span><br><span class="line">increment by 1</span><br><span class="line">cycle maxvalue 3</span><br><span class="line">nocache</span><br><span class="line">到3后自动回1</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">alter sequence myseq1 increment by 3;</span><br><span class="line">改变增量</span><br><span class="line">drop sequence myseq1;</span><br></pre></td></tr></table></figure>
+
+<h3 id="同义词"><a href="#同义词" class="headerlink" title="同义词"></a>同义词</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">create public synonym dept for scott.dept  创建公共的同义词 对scott下的dept  叫dept</span><br><span class="line">drop public synonym dept;</span><br><span class="line"></span><br><span class="line">非公有去掉public</span><br></pre></td></tr></table></figure>
+
+
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">oracle</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/11/sql%E4%BC%98%E5%8C%96%E5%92%8C%E5%BA%8F%E5%88%97%E5%90%8C%E4%B9%89%E8%AF%8D/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-事务索引" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/11/%E4%BA%8B%E5%8A%A1%E7%B4%A2%E5%BC%95/">事务索引</a>
+    </h1>
+  
+
+        
+        <a href="/2020/02/11/%E4%BA%8B%E5%8A%A1%E7%B4%A2%E5%BC%95/" class="archive-article-date">
+  	<time datetime="2020-02-11T08:58:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h2><p>不同的两个客户端  =    非共享</p>
+        
+          <a class="article-more-a" href="/2020/02/11/%E4%BA%8B%E5%8A%A1%E7%B4%A2%E5%BC%95/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">oracle</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/11/%E4%BA%8B%E5%8A%A1%E7%B4%A2%E5%BC%95/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-约束和视图" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -771,160 +962,6 @@
 
 
   
-    <article id="post-Linux-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/01/17/Linux-1/">Linux-1</a>
-    </h1>
-  
-
-        
-        <a href="/2020/01/17/Linux-1/" class="archive-article-date">
-  	<time datetime="2020-01-17T06:42:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>shell 壳</p>
-<p>config 配置</p>
-        
-          <a class="article-more-a" href="/2020/01/17/Linux-1/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/01/17/Linux-1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-排序" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/12/13/%E6%8E%92%E5%BA%8F/">排序</a>
-    </h1>
-  
-
-        
-        <a href="/2019/12/13/%E6%8E%92%E5%BA%8F/" class="archive-article-date">
-  	<time datetime="2019-12-13T07:37:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h2><p>内存排序</p>
-<p>​            交换排序</p>
-        
-          <a class="article-more-a" href="/2019/12/13/%E6%8E%92%E5%BA%8F/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">java实践</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/12/13/%E6%8E%92%E5%BA%8F/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1041,11 +1078,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">java实践</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">oracle</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">oracle</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">java实践</a>
               </li>
             
             <div class="clearfix"></div>
