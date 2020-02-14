@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://zp23333.github.io">
   <title>sql优化和序列同义词 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="sql优化删除一张表的重复记录 1234567891011121314151617Tid name age1  a  102  a  103  b  114  c  12做法一： 慢 没有索引delete  from T where id not in (select min(id) from T group by name,age);做法二: 略快delete from t where id i">
+  <meta name="description" content="sql优化删除一张表的重复记录">
 <meta name="keywords" content="oracle">
 <meta property="og:type" content="article">
 <meta property="og:title" content="sql优化和序列同义词">
 <meta property="og:url" content="http:&#x2F;&#x2F;zp23333.github.io&#x2F;2020&#x2F;02&#x2F;11&#x2F;sql%E4%BC%98%E5%8C%96%E5%92%8C%E5%BA%8F%E5%88%97%E5%90%8C%E4%B9%89%E8%AF%8D&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="sql优化删除一张表的重复记录 1234567891011121314151617Tid name age1  a  102  a  103  b  114  c  12做法一： 慢 没有索引delete  from T where id not in (select min(id) from T group by name,age);做法二: 略快delete from t where id i">
+<meta property="og:description" content="sql优化删除一张表的重复记录">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-02-11T16:34:19.849Z">
+<meta property="og:updated_time" content="2020-02-13T12:40:05.803Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -183,6 +183,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="sql优化"><a href="#sql优化" class="headerlink" title="sql优化"></a>sql优化</h2><p><strong>删除一张表的重复记录</strong></p>
+<a id="more"></a>
+
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">T</span><br><span class="line">id name age</span><br><span class="line">1  a  10</span><br><span class="line">2  a  10</span><br><span class="line">3  b  11</span><br><span class="line">4  c  12</span><br><span class="line">做法一： 慢 没有索引</span><br><span class="line">delete  from T where id not in (select min(id) from T group by name,age);</span><br><span class="line">做法二: 略快</span><br><span class="line">delete from t where id in </span><br><span class="line">(select distinct a2.id from t a1,t a2 where a1.id&gt;a2.id and a1.name=a2.name</span><br><span class="line"> and a1.age=a2.age);</span><br><span class="line">做法三： 最佳</span><br><span class="line">delete from t a1 where not exists( select *</span><br><span class="line">from t a2</span><br><span class="line">where a1.id&gt;a2.id and a1.name=a2.name and a1.age=a2.age</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 
 <h4 id="1-尽量少用in操作符"><a href="#1-尽量少用in操作符" class="headerlink" title="1.尽量少用in操作符"></a>1.尽量少用in操作符</h4><p>根据表大小选择in 还是 exists  子表大选exists</p>
@@ -327,6 +329,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2020/02/12/PLSQL%E6%B8%B8%E6%A0%87%E5%87%BD%E6%95%B0/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          PLSQL游标函数
+        
+      </div>
+    </a>
   
   
     <a href="/2020/02/11/%E4%BA%8B%E5%8A%A1%E7%B4%A2%E5%BC%95/" id="article-nav-older" class="article-nav-link-wrap">
@@ -476,19 +487,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">oracle</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">

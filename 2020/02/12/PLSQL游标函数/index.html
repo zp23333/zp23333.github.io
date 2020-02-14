@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zp23333.github.io">
-  <title>Linux-1 | Hexo</title>
+  <title>PLSQL游标函数 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="shell 壳 config 配置">
-<meta name="keywords" content="Linux">
+  <meta name="description" content="PLSQL">
+<meta name="keywords" content="oracle">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux-1">
-<meta property="og:url" content="http:&#x2F;&#x2F;zp23333.github.io&#x2F;2020&#x2F;01&#x2F;17&#x2F;Linux-1&#x2F;index.html">
+<meta property="og:title" content="PLSQL游标函数">
+<meta property="og:url" content="http:&#x2F;&#x2F;zp23333.github.io&#x2F;2020&#x2F;02&#x2F;12&#x2F;PLSQL%E6%B8%B8%E6%A0%87%E5%87%BD%E6%95%B0&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="shell 壳 config 配置">
+<meta property="og:description" content="PLSQL">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-01-17T06:54:19.294Z">
+<meta property="og:updated_time" content="2020-02-13T13:18:42.678Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -162,107 +162,54 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Linux-1" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-PLSQL游标函数" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Linux-1
+      PLSQL游标函数
     </h1>
   
 
         
-        <a href="/2020/01/17/Linux-1/" class="archive-article-date">
-  	<time datetime="2020-01-17T06:42:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-17</time>
+        <a href="/2020/02/12/PLSQL%E6%B8%B8%E6%A0%87%E5%87%BD%E6%95%B0/" class="archive-article-date">
+  	<time datetime="2020-02-12T14:05:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-12</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>shell 壳</p>
-<p>config 配置</p>
-<a id="more"></a>
+        <h2 id="PLSQL"><a href="#PLSQL" class="headerlink" title="PLSQL"></a>PLSQL</h2><a id="more"></a>
 
-<p>script 脚本</p>
-<p>protocol 协议</p>
-<p>quick 快速</p>
-<p>boot 引导 启动所要读取的配置文件</p>
-<p>secure  安全</p>
-<p>sep 分离</p>
-<p>binary  二进制  bin（命令-&gt;文件一般放在这）软连接 真实指向/usr/bin  可执行的二进制文件</p>
-<p>service 服务</p>
-<p>format 格式</p>
-<p>options  操作</p>
-<p>grub 引导</p>
-<p>export  导出，出口</p>
-<p>default  默认</p>
-<p>entry 条目，进入</p>
-<p>prefix  前置。前缀</p>
-<p>device 设备</p>
-<p>bus   总线</p>
-<p>core 内核</p>
-<p>cdrom  只读光盘</p>
-<p>echo  显示，回送，应答</p>
-<p>DNS  （domain name system）more 显示</p>
-<p>excute 执行</p>
-<p>session  会话</p>
-<p>emulation 仿真，</p>
-<p>font 字体</p>
-<p>log  日志</p>
-<p>alias 别名</p>
-<p>force 强制</p>
-<p>startup  启动</p>
-<p>program  程序</p>
-<p>setup  设置安装</p>
-<p>aliase  别名</p>
-<p>bash  rc 没有则创建用于命令别</p>
-<p>custom  自定义</p>
-<p>merge 合并</p>
-<p>directory  目录</p>
-<p>administrator  管理员</p>
-<hr>
-<hr>
-<h2 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h2><p><strong>/ 根</strong></p>
-<p><strong>文件以树形结构存储</strong></p>
-<p><strong>进入一个文件后可以不写/了</strong></p>
-<p>分目录（文件夹）</p>
-<p>:  分割符</p>
-<p>. 隐藏文件</p>
-<p>环境变量  ：代表分割  ，多个变量里面找对应的</p>
-<p>~    /root</p>
-<p><strong>万物皆文件，目录</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line">cd .. 退回上一目录 （注意空格）</span><br><span class="line">/usr/bin/ls = ls</span><br><span class="line">ls    list   显示目录详情  （ll简写 ls -l以长格式显示目录详情 ）  清单 ，列表</span><br><span class="line">-l   long  以长格式显示   </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">cd    change Directory      切换目录</span><br><span class="line">cd    目录路径</span><br><span class="line">pwd   print working directory  打印当前工作目录</span><br><span class="line"></span><br><span class="line">bin  二进制文件  binary  二进制  bin（命令-&gt;文件一般放在这）软连接 真实指向/usr/bin  可执行的二进制文件</span><br><span class="line"></span><br><span class="line">sbin  —&gt;usr/sbin 软链接 管理员才可以使用的二进制命令</span><br><span class="line"></span><br><span class="line">boot 配置文件 </span><br><span class="line">cfg  .cfg  conf 配置文件夹</span><br><span class="line"></span><br><span class="line">dev  设备文件</span><br><span class="line"></span><br><span class="line">etc 系统配置文件</span><br><span class="line">    /etc/profile  环境变量配置文件</span><br><span class="line">    .bash_profile 个人用户环境变量</span><br><span class="line">    /etc/passwd   用户名</span><br><span class="line">    /etc/shadow   密码</span><br><span class="line">    /etc/sysconfig/network-script/ifcfg-ens33 网卡配置信息</span><br><span class="line">    </span><br><span class="line">！！</span><br><span class="line">/usr/bin/ls=ls</span><br><span class="line">echo $PATH(打印当前环境变量)</span><br><span class="line">环境变量：如果敲了ls，可以去环境变量下去找是否可以拼接命令</span><br><span class="line">（javahome要配，path）</span><br><span class="line">！！</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> more /etc/hostname     出来 myhost</span></span><br><span class="line">ip addr   查看ip配置  </span><br><span class="line">ping localhost =ping 127.0.0.1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">home 普通用户的家目录  （分别放对应人的东西）</span><br><span class="line">su 切换用户  su -test</span><br><span class="line">useradd text01</span><br><span class="line">passwd text01</span><br><span class="line">用户配置</span><br><span class="line">.bashrc 别名</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">root 超级用户的家目录</span><br><span class="line"></span><br><span class="line">lib  库文件   firewalld 防火墙 </span><br><span class="line">lib64 库文件</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">usr    共享目录</span><br><span class="line"></span><br><span class="line">media  系统独有的文件夹</span><br><span class="line"></span><br><span class="line">mnt    挂载目录 （插u盘） mount</span><br><span class="line">mount  挂载 u盘之类的</span><br><span class="line"></span><br><span class="line">独有</span><br><span class="line">run  新增目录 </span><br><span class="line">opt  选项</span><br><span class="line">proc  独有  进程</span><br><span class="line"></span><br><span class="line">tmp  临时文件夹 </span><br><span class="line"></span><br><span class="line">usr </span><br><span class="line">中的 local 服务器中安装文件放在此   dump把内存东西持久化</span><br><span class="line"></span><br><span class="line">家目录  root有关 注意用ll来查看目录里面有什么</span><br><span class="line"></span><br><span class="line">var   日志文件log   spool监听</span><br><span class="line">rm -f 删除文件</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--组成</span></span><br><span class="line"><span class="keyword">declare</span></span><br><span class="line">声明部分</span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line">编写主题</span><br><span class="line"><span class="keyword">exception</span></span><br><span class="line">捕获异常</span><br><span class="line"><span class="keyword">end</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">--例子one</span></span><br><span class="line"><span class="keyword">declare</span></span><br><span class="line">i <span class="built_in">number</span>;</span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line">i:=<span class="number">30</span>;</span><br><span class="line">DBMS_OUTPUT.put_line(i);    可在查看里面连接DBMS输出查看//或者<span class="keyword">set</span> serveroutput <span class="keyword">on</span> </span><br><span class="line"><span class="keyword">end</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">--例子two</span></span><br><span class="line"><span class="keyword">declare</span> </span><br><span class="line">i <span class="built_in">number</span>;</span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line">i:<span class="number">1</span>/<span class="number">0</span>;</span><br><span class="line">exception</span><br><span class="line"> when ZERO_DIVIDE then</span><br><span class="line">  dbms_output.put_line('error');</span><br><span class="line"><span class="keyword">end</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">--例子three</span></span><br><span class="line"><span class="keyword">declare</span></span><br><span class="line">eno <span class="built_in">number</span>;</span><br><span class="line">ena varchar2(30);</span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line"><span class="comment">--输入信息存在eno</span></span><br><span class="line">eno:=&amp;<span class="keyword">no</span>;                                        &amp; 用户输入信息</span><br><span class="line"><span class="comment">--之后根据eno的值，对数据库进行查询操作</span></span><br><span class="line"><span class="keyword">select</span> ename <span class="keyword">into</span> ena <span class="keyword">from</span> emp <span class="keyword">where</span> empno=eno;  into 查询的输出输送到ena</span><br><span class="line">DBMS_OUTPUT.put_line(ena||eno);                  ||连接</span><br><span class="line">exception</span><br><span class="line">when no_data_found then</span><br><span class="line">DBMS_output.put_line('没有此人');</span><br><span class="line"><span class="keyword">end</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">--%row</span></span><br><span class="line">eno emp.empno%type;</span><br><span class="line">直接对应字段属性</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">--%rowtype</span></span><br><span class="line"><span class="keyword">declare</span></span><br><span class="line">empmsg emp%rowtype ; <span class="comment">-- 定义一个empmsg变量 存一行的数据</span></span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line">  <span class="keyword">select</span> * <span class="keyword">into</span> empmsg <span class="keyword">from</span> emp <span class="keyword">where</span> empno=<span class="number">1001</span> ;</span><br><span class="line"> dbms_output.put_line(empmsg.ename||':'||empmsg.sal) ; <span class="comment">---输出</span></span><br><span class="line"><span class="keyword">end</span> ;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">--loop循环（do...while）</span></span><br><span class="line">loop</span><br><span class="line">循环语句</span><br><span class="line">exit when 终止条件;</span><br><span class="line">循环条件必须更改；    //循环自增之类的条件</span><br><span class="line"><span class="keyword">end</span> <span class="keyword">loop</span>；</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">--例子</span></span><br><span class="line"><span class="keyword">declare</span></span><br><span class="line">c <span class="built_in">number</span>;</span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line"><span class="comment">--给初始值必须</span></span><br><span class="line">c:=<span class="number">1</span>;</span><br><span class="line">loop</span><br><span class="line">DBMS_OUTPUT.put_line(c);</span><br><span class="line">c：=c+1;</span><br><span class="line">exit when c&gt;10;</span><br><span class="line"><span class="keyword">end</span> <span class="keyword">loop</span>;</span><br><span class="line"><span class="keyword">end</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">--while循环  个人习惯用这个</span></span><br><span class="line"><span class="keyword">declare</span></span><br><span class="line">c <span class="built_in">number</span>;</span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line">c:=<span class="number">1</span>;</span><br><span class="line">while(c&lt;=10)loop</span><br><span class="line">DBMS_OUTPUT.put_line(c);</span><br><span class="line">c:=c+1;</span><br><span class="line"><span class="keyword">end</span> <span class="keyword">loop</span>;</span><br><span class="line"><span class="keyword">end</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">--for 循环</span></span><br><span class="line"><span class="keyword">declare</span></span><br><span class="line">c <span class="built_in">number</span>;</span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line">c:=<span class="number">1</span>;</span><br><span class="line">for c in 1..10 loop</span><br><span class="line">  DBMS_OUTPUT.put_line(c);</span><br><span class="line"> <span class="keyword">end</span> <span class="keyword">loop</span>;</span><br><span class="line"><span class="keyword">end</span>;</span><br><span class="line"><span class="comment">--分号不要缺少</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">--if语句</span></span><br><span class="line"><span class="keyword">declare</span></span><br><span class="line">c <span class="built_in">number</span>;</span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line">c:=<span class="number">11</span>;</span><br><span class="line">if c&gt;10 then</span><br><span class="line"> DBMS_OUTPUT.put_line(c);</span><br><span class="line"> <span class="keyword">end</span> <span class="keyword">if</span>;</span><br><span class="line"><span class="keyword">end</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- if.. else语句</span></span><br><span class="line"><span class="keyword">declare</span> </span><br><span class="line">c <span class="built_in">number</span>;</span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line">c:=<span class="number">11</span>;</span><br><span class="line">if c&gt;10 then</span><br><span class="line"> DBMS_OUTPUT.put_line(c);</span><br><span class="line"> else</span><br><span class="line"> DBMS_OUTPUT.put_line('条件不满足');</span><br><span class="line"> <span class="keyword">end</span> <span class="keyword">if</span>;</span><br><span class="line"> <span class="keyword">end</span>;</span><br><span class="line"> </span><br><span class="line"> <span class="comment">--if  elsif   else语句</span></span><br><span class="line"> <span class="keyword">declare</span> </span><br><span class="line">c <span class="built_in">number</span>;</span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line">c:=&amp;输入一个数字;</span><br><span class="line">if c&gt;10 then</span><br><span class="line"> DBMS_OUTPUT.put_line(c);</span><br><span class="line"> elsif c&lt;5  then</span><br><span class="line"> DBMS_OUTPUT.put_line('小于5');</span><br><span class="line"> else </span><br><span class="line"> DBMS_OUTPUT.put_line('大于等于5小于等于10')</span><br><span class="line"> <span class="keyword">end</span> <span class="keyword">if</span>;</span><br><span class="line"> <span class="keyword">end</span>;</span><br></pre></td></tr></table></figure>
 
-<p><strong>绝对路径</strong>    </p>
-<p>相对于根目录来说</p>
-<p><strong>cd /root/test</strong></p>
-<p><strong>从/目录出发都是绝对路径，在任意位置可以被认出</strong></p>
-<p><strong>返回再走一次</strong></p>
-<p><strong>相对路径</strong>   </p>
-<p>相对于现在的位置来说</p>
-<p><strong>cd test</strong></p>
-<p><strong>第一个是根目录</strong></p>
-<p><strong>第二个是分割符 的</strong>    下面的</p>
-<hr>
-<h3 id="文件权限"><a href="#文件权限" class="headerlink" title="文件权限"></a>文件权限</h3><p>文件后缀名：告诉系统他是什么类型的文件，内容和后缀名毫无关系</p>
-<p>-代表文件</p>
-<p>-rwx     rwx      rwx</p>
-<p>-文件</p>
-<p>r：读操作               代表数字  4</p>
-<p>w：写操作                               2</p>
-<p>x：只能打开文件                    1</p>
-<p>一般755权限（读写打开，读打开）</p>
-<p>chmod改权限 750  755/root</p>
-<p>3位一组</p>
-<p>​        u                    g            o</p>
-<p>文件所有者   文件所有组  其他 </p>
-<p>每一组对应3位 </p>
-<p>后缀名：决定以什么方式打开文件（文件类型）</p>
-<p>cd： /root/mytest   </p>
-<p>如果root权限没了，后面也没了</p>
+
+
+<h2 id="游标"><a href="#游标" class="headerlink" title="游标"></a>游标</h2><p>操作步骤</p>
+<ul>
+<li>声明游标</li>
+<li>打开游标</li>
+<li>去除结果     此时的结果是一行数据</li>
+<li>关闭游标</li>
+<li>使用rowtype 可以把一行数据装入</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DECLARE</span></span><br><span class="line"><span class="comment">--声明游标</span></span><br><span class="line"><span class="keyword">CURSOR</span> mycur <span class="keyword">IS</span> <span class="keyword">SELECT</span> * <span class="keyword">FROM</span> emp <span class="keyword">where</span> empno=<span class="number">1001</span>;</span><br><span class="line">empInfo  emp%ROWTYPE;</span><br><span class="line">cou NUMBER;</span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line"><span class="comment">--游标操作使用循环，但是在操作前必须先将游标打开</span></span><br><span class="line"><span class="keyword">FOR</span> empInfo <span class="keyword">IN</span> mycur <span class="keyword">LOOP</span></span><br><span class="line"> cou:=mycur%ROWCOUNT;</span><br><span class="line"> DBMS_OUTPUT.put_line(cou|| empInfo.empno);</span><br><span class="line">  DBMS_OUTPUT.put_line(cou|| empInfo.ename);</span><br><span class="line">  <span class="keyword">END</span> <span class="keyword">LOOP</span>;</span><br><span class="line">  <span class="keyword">END</span>;</span><br><span class="line"> </span><br><span class="line"> <span class="comment">--标准例子   while() loop  .. end loop</span></span><br><span class="line"> <span class="keyword">DECLARE</span></span><br><span class="line"> <span class="comment">--声明游标</span></span><br><span class="line"> <span class="keyword">CURSOR</span> mycur <span class="keyword">IS</span> <span class="keyword">SELECT</span> * <span class="keyword">from</span> emp;</span><br><span class="line"> empInfo emp %rowtype;</span><br><span class="line"> <span class="keyword">BEGIN</span></span><br><span class="line"> <span class="comment">--打开游标</span></span><br><span class="line"> <span class="keyword">OPEN</span> mycur;</span><br><span class="line"> <span class="comment">--使游标向下一行</span></span><br><span class="line"> FETCH mycur INTO empInfo;</span><br><span class="line"> <span class="comment">--判断此行是否有数据被发现</span></span><br><span class="line"> WHILE(mycur%FOUND)LOOP</span><br><span class="line">   DBMS_OUTPUT.put_line(empInfo.empno);</span><br><span class="line">   DBMS_OUTPUT.put_line(empInfo.ename);</span><br><span class="line">   FETCH mycur INTO empInfo;</span><br><span class="line">  <span class="keyword">END</span> <span class="keyword">LOOP</span>;</span><br><span class="line"><span class="keyword">END</span>;</span><br><span class="line"> </span><br><span class="line"> <span class="comment">--    loop   exit when</span></span><br><span class="line">  <span class="keyword">DECLARE</span></span><br><span class="line"> <span class="keyword">CURSOR</span> mycur <span class="keyword">IS</span> <span class="keyword">SELECT</span> * <span class="keyword">from</span> emp;</span><br><span class="line"> empInfo emp %rowtype;</span><br><span class="line"> <span class="keyword">BEGIN</span></span><br><span class="line"> <span class="keyword">OPEN</span> mycur;</span><br><span class="line"> LOOP</span><br><span class="line"> FETCH mycur INTO empInfo;</span><br><span class="line">   DBMS_OUTPUT.put_line(empInfo.empno);</span><br><span class="line">   DBMS_OUTPUT.put_line(empInfo.ename);</span><br><span class="line">   exit when mycur%NOTFOUND;</span><br><span class="line">  <span class="keyword">END</span> <span class="keyword">LOOP</span>;</span><br><span class="line"><span class="keyword">END</span>;</span><br><span class="line"> </span><br><span class="line"> <span class="comment">--rowcount  游标操作的行数</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--创建一个函数</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">or</span> <span class="keyword">replace</span> <span class="keyword">function</span> myfun(eno emp.empno%<span class="keyword">type</span>) <span class="keyword">return</span> <span class="built_in">number</span>  <span class="comment">--可以return null</span></span><br><span class="line"><span class="keyword">as</span>   <span class="comment">--相当于声明变量</span></span><br><span class="line">rsal <span class="built_in">number</span>;</span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line"><span class="keyword">select</span> (sal+nvl(comm,<span class="number">0</span>))*<span class="number">12</span> <span class="keyword">into</span> rsal <span class="keyword">from</span> emp <span class="keyword">where</span> empno=eno;</span><br><span class="line">return rsal;</span><br><span class="line"><span class="keyword">end</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">--用sql语句调用函数</span></span><br><span class="line"><span class="keyword">select</span> myfun(<span class="number">1003</span>) <span class="keyword">from</span> dual;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
 
       
 
@@ -297,7 +244,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color1">Linux</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">oracle</a>
         		</li>
       		
 		</ul>
@@ -353,7 +300,7 @@
     <a class="close js-modal-close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-<img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://zp23333.github.io/b.io/2020/01/17/Linux-1/" alt="微信分享二维码">
+<img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://zp23333.github.io/b.io/2020/02/12/PLSQL%E6%B8%B8%E6%A0%87%E5%87%BD%E6%95%B0/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -367,18 +314,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/01/17/Linux-2/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/02/13/%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B%E5%92%8C%E8%A7%A6%E5%8F%91%E5%99%A8/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Linux-2
+          存储过程和触发器
         
       </div>
     </a>
   
   
-    <a href="/2019/12/13/%E6%8E%92%E5%BA%8F/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">排序</div>
+    <a href="/2020/02/11/sql%E4%BC%98%E5%8C%96%E5%92%8C%E5%BA%8F%E5%88%97%E5%90%8C%E4%B9%89%E8%AF%8D/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">sql优化和序列同义词</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -405,7 +352,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#linux"><span class="toc-number">1.</span> <span class="toc-text">linux</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#文件权限"><span class="toc-number">1.1.</span> <span class="toc-text">文件权限</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#PLSQL"><span class="toc-number">1.</span> <span class="toc-text">PLSQL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#游标"><span class="toc-number">2.</span> <span class="toc-text">游标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数"><span class="toc-number">3.</span> <span class="toc-text">函数</span></a></li></ol>
                     </div>
                 </span>
             </div>
