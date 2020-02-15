@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="多表查询">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-02-11T13:32:08.348Z">
+<meta property="og:updated_time" content="2020-02-15T07:56:03.604Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -210,7 +210,14 @@
 <p><strong>交叉连接</strong>的时候进行on的筛选  效率快一点</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">select * from student s</span><br><span class="line">inner join </span><br><span class="line">mark M</span><br><span class="line">on s.sno=m.sno and sname=&apos;张三&apos;; 快一点！！！</span><br></pre></td></tr></table></figure>
 
-<p><strong>聚合分析函数</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">select </span><br><span class="line">(select s_name from student ss where ss.s_id=m.s_id )姓名,</span><br><span class="line">m.s_id 学号 , </span><br><span class="line">m.c_id 课程1,</span><br><span class="line">m.s_score mark,</span><br><span class="line">s.c_id 课程2,</span><br><span class="line">s.s_score mark2</span><br><span class="line">from score  m  </span><br><span class="line">join score s </span><br><span class="line">on s.s_id=m.s_id</span><br><span class="line">where s.c_id=&apos;01&apos;and m.c_id=&apos;02&apos; and s.s_score&gt;m.s_score;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">select（查询信息是连接完进行筛选后的数据）  </span><br><span class="line">from  </span><br><span class="line">table  t1</span><br><span class="line">join</span><br><span class="line">table t2</span><br><span class="line">on 两表直接关联连接</span><br><span class="line"></span><br><span class="line">where  可以对连接完的表进行进一步筛选</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
 <p><strong>where 行比较 对比的是一个值</strong></p>
 <p><strong>group by 之后是一组数据 可以比较多个值</strong></p>
 <p>想取组数据，在group by 后面加上那个字段</p>
@@ -525,11 +532,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">oracle</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">oracle</a>
               </li>
              
               <li class="article-tag-list-item">
