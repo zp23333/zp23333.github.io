@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zp23333.github.io">
-  <title>Tag: oracle | Hexo</title>
+  <title>oracle-查询到连接的一些感想 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http:&#x2F;&#x2F;zp23333.github.io&#x2F;tags&#x2F;oracle&#x2F;page&#x2F;2&#x2F;index.html">
+  <meta name="description" content="join">
+<meta name="keywords" content="oracle">
+<meta property="og:type" content="article">
+<meta property="og:title" content="oracle-查询到连接的一些感想">
+<meta property="og:url" content="http:&#x2F;&#x2F;zp23333.github.io&#x2F;2020&#x2F;02&#x2F;16&#x2F;oracle-%E6%9F%A5%E8%AF%A2%E5%88%B0%E8%BF%9E%E6%8E%A5%E7%9A%84%E4%B8%80%E4%BA%9B%E6%84%9F%E6%83%B3&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="join">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2020-02-16T13:12:38.468Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -158,36 +162,65 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-oracle-查询到连接的一些感想" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      oracle-查询到连接的一些感想
+    </h1>
+  
+
+        
+        <a href="/2020/02/16/oracle-%E6%9F%A5%E8%AF%A2%E5%88%B0%E8%BF%9E%E6%8E%A5%E7%9A%84%E4%B8%80%E4%BA%9B%E6%84%9F%E6%83%B3/" class="archive-article-date">
+  	<time datetime="2020-02-16T12:18:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-16</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="join"><a href="#join" class="headerlink" title="join"></a>join</h3><a id="more"></a>
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--查询"01"课程比"02"课程成绩高的学生的信息及课程分数</span></span><br><span class="line"><span class="comment">--无脑写法</span></span><br><span class="line"><span class="keyword">select</span> a.*,b.s_score <span class="keyword">as</span> <span class="number">01</span>_score,c.s_score <span class="keyword">as</span> <span class="number">02</span>_score <span class="keyword">from</span> student   a,score b,score c </span><br><span class="line"><span class="keyword">where</span> a.s_id=b.s_id </span><br><span class="line"><span class="keyword">and</span> a.s_id=c.s_id </span><br><span class="line"><span class="keyword">and</span> b.c_id=<span class="string">'01'</span> </span><br><span class="line"><span class="keyword">and</span> c.c_id=<span class="string">'02'</span> </span><br><span class="line"><span class="keyword">and</span> b.s_score&gt;c.s_score</span><br><span class="line"></span><br><span class="line"><span class="comment">--部分优化</span></span><br><span class="line"><span class="keyword">select</span> </span><br><span class="line">(<span class="keyword">select</span> s_name <span class="keyword">from</span> student ss <span class="keyword">where</span> ss.s_id=m.s_id )姓名,</span><br><span class="line">m.s_id 学号 , </span><br><span class="line">m.c_id 课程<span class="number">1</span>,</span><br><span class="line">m.s_score mark,</span><br><span class="line">s.c_id 课程<span class="number">2</span>,</span><br><span class="line">s.s_score mark2</span><br><span class="line"><span class="keyword">from</span> score  m  </span><br><span class="line"><span class="keyword">join</span> score s </span><br><span class="line"><span class="keyword">on</span> s.s_id=m.s_id</span><br><span class="line"><span class="keyword">where</span> s.c_id=<span class="string">'01'</span><span class="keyword">and</span> m.c_id=<span class="string">'02'</span> <span class="keyword">and</span> s.s_score&gt;m.s_score;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span>（查询信息是连接完进行筛选后的数据）  </span><br><span class="line"><span class="keyword">from</span>  </span><br><span class="line"><span class="keyword">table</span>  t1</span><br><span class="line"><span class="keyword">join</span></span><br><span class="line"><span class="keyword">table</span> t2</span><br><span class="line"><span class="keyword">on</span> 两表直接关联连接</span><br><span class="line"></span><br><span class="line"><span class="keyword">where</span>  可以对连接完的表进行进一步筛选</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--一些解题思路</span></span><br><span class="line"><span class="comment">-- 21、查询不同老师所教不同课程平均分从高到低显示</span></span><br><span class="line"><span class="comment">--1 先找了不同老师交的课程</span></span><br><span class="line"><span class="keyword">select</span> </span><br><span class="line">tid,</span><br><span class="line">tname,</span><br><span class="line">(<span class="keyword">select</span> cid <span class="keyword">from</span> course b <span class="keyword">where</span> b.tid=a.tid)<span class="keyword">id</span>,</span><br><span class="line">(<span class="keyword">select</span> cname <span class="keyword">from</span> course b <span class="keyword">where</span> b.tid=a.tid)课程名</span><br><span class="line"><span class="keyword">from</span> teacher a </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">--2 按照课程分组，求出平均分，并进行排序</span></span><br><span class="line"><span class="keyword">select</span> cid,<span class="keyword">avg</span>(sscore) pjf <span class="keyword">from</span> score <span class="keyword">group</span> <span class="keyword">by</span> cid <span class="keyword">order</span> <span class="keyword">by</span> pjf <span class="keyword">desc</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">--3 此时我想的是把两张表连接</span></span><br><span class="line"><span class="comment">--	但是inner join 的话无法直接连接</span></span><br><span class="line"><span class="comment">--  那就采取交叉连接的方式 进行连接</span></span><br><span class="line"><span class="keyword">select</span>  m.*,n.* <span class="keyword">from</span> (<span class="keyword">select</span> </span><br><span class="line">tid,</span><br><span class="line">tname,</span><br><span class="line">(<span class="keyword">select</span> cid <span class="keyword">from</span> course b <span class="keyword">where</span> b.tid=a.tid)<span class="keyword">id</span>,</span><br><span class="line">(<span class="keyword">select</span> cname <span class="keyword">from</span> course b <span class="keyword">where</span> b.tid=a.tid)课程名</span><br><span class="line"><span class="keyword">from</span> teacher a )m ,(<span class="keyword">select</span> cid,<span class="keyword">avg</span>(sscore) pjf <span class="keyword">from</span> score <span class="keyword">group</span> <span class="keyword">by</span> cid <span class="keyword">order</span> <span class="keyword">by</span> pjf <span class="keyword">desc</span>) n</span><br><span class="line"><span class="keyword">where</span> m.id=n.cid</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--另外的思路</span></span><br><span class="line"><span class="comment">--创建视图，来解决问题</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">view</span> test1 <span class="keyword">as</span>(</span><br><span class="line"><span class="keyword">select</span> </span><br><span class="line">tid,</span><br><span class="line">tname,</span><br><span class="line">(<span class="keyword">select</span> cid <span class="keyword">from</span> course b <span class="keyword">where</span> b.tid=a.tid)<span class="keyword">id</span>,</span><br><span class="line">(<span class="keyword">select</span> cname <span class="keyword">from</span> course b <span class="keyword">where</span> b.tid=a.tid)课程名</span><br><span class="line"><span class="keyword">from</span> teacher a )</span><br><span class="line"></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">view</span> test2 <span class="keyword">as</span> <span class="keyword">select</span> cid,<span class="keyword">avg</span>(sscore) pjf <span class="keyword">from</span> score <span class="keyword">group</span> <span class="keyword">by</span> cid <span class="keyword">order</span> <span class="keyword">by</span> pjf <span class="keyword">desc</span> </span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> test1;</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span></span><br><span class="line">test1 t1</span><br><span class="line"><span class="keyword">join</span> </span><br><span class="line">test2 t2</span><br><span class="line"><span class="keyword">on</span> t1.id=t2.cid</span><br><span class="line"></span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">view</span> <span class="keyword">test</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--个人目前最优解</span></span><br><span class="line"><span class="comment">-- 想用on来筛选的话，再套一层</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span>(</span><br><span class="line"><span class="keyword">select</span> </span><br><span class="line">tid,</span><br><span class="line">tname,</span><br><span class="line">(<span class="keyword">select</span> cid <span class="keyword">from</span> course b <span class="keyword">where</span> b.tid=a.tid)<span class="keyword">id</span>,</span><br><span class="line">(<span class="keyword">select</span> cname <span class="keyword">from</span> course b <span class="keyword">where</span> b.tid=a.tid)课程名</span><br><span class="line"><span class="keyword">from</span> teacher a )m</span><br><span class="line"><span class="keyword">join</span></span><br><span class="line"> (<span class="keyword">select</span> cid,<span class="keyword">avg</span>(sscore) pjf <span class="keyword">from</span> score <span class="keyword">group</span> <span class="keyword">by</span> cid <span class="keyword">order</span> <span class="keyword">by</span> pjf <span class="keyword">desc</span> ) n</span><br><span class="line"> <span class="keyword">on</span> m.id=n.cid</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" target="_blank" rel="noopener" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/10/%E7%BA%A6%E6%9D%9F%E5%92%8C%E8%A7%86%E5%9B%BE/" class="archive-article-date">
-  	<time datetime="2020-02-10T14:12:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/10/%E7%BA%A6%E6%9D%9F%E5%92%8C%E8%A7%86%E5%9B%BE/">约束和视图</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -199,212 +232,127 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" target="_blank" rel="noopener" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" target="_blank" rel="noopener" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+<img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://zp23333.github.io/b.io/2020/02/16/oracle-%E6%9F%A5%E8%AF%A2%E5%88%B0%E8%BF%9E%E6%8E%A5%E7%9A%84%E4%B8%80%E4%BA%9B%E6%84%9F%E6%83%B3/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/10/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/" class="archive-article-date">
-  	<time datetime="2020-02-10T13:51:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-10</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2020/02/16/oracle-rownum-id/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          oracle-rownum/id
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/02/16/oracle-%E5%BC%80%E7%AA%97%E5%87%BD%E6%95%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">oracle-开窗函数</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/10/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/">数据库体系结构</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">oracle</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#join"><span class="toc-number">1.</span> <span class="toc-text">join</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/09/%E9%AB%98%E7%BA%A7%E6%9F%A5%E8%AF%A2%E6%95%B0%E6%8D%AE%E5%AD%97%E5%85%B8/" class="archive-article-date">
-  	<time datetime="2020-02-09T13:55:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-09</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/09/%E9%AB%98%E7%BA%A7%E6%9F%A5%E8%AF%A2%E6%95%B0%E6%8D%AE%E5%AD%97%E5%85%B8/">高级查询</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">oracle</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/05/%E5%AD%90%E6%9F%A5%E8%AF%A2/" class="archive-article-date">
-  	<time datetime="2020-02-05T08:02:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/05/%E5%AD%90%E6%9F%A5%E8%AF%A2/">子查询</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">oracle</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/05/%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/" class="archive-article-date">
-  	<time datetime="2020-02-05T07:19:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/05/%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/">多表查询</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">oracle</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/23/oracle-%E5%85%A5%E9%97%A8/" class="archive-article-date">
-  	<time datetime="2020-01-23T08:18:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/23/oracle-%E5%85%A5%E9%97%A8/">oracle-入门</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">oracle</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/tags/oracle/">&amp;laquo; Prev</a><a class="page-number" href="/tags/oracle/">1</a><span class="page-number current">2</span>
-    </nav>
   
 
 
@@ -434,9 +382,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

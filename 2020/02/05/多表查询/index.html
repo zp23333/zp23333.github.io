@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="多表查询">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-02-15T07:56:03.604Z">
+<meta property="og:updated_time" content="2020-02-16T15:01:51.588Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -246,7 +246,7 @@
 <p><strong>简化取第一名&gt;=all</strong></p>
 <p>rownum是对结果集添加的一个伪列，即<strong>先查到结果集之后在加上去的一个伪列，一定要先有结果集</strong>，rownum它是对符合条件的序列号，它总是从1开始进行排序。<strong>在rownum语句中不能直接写在查询的语句上，因为这样查询出来的结果全部都是乱序。所以都是把rownum放在子查询的外层，查询出来即可</strong>。有些子查询会存在ORDER BY 排序的写法，因为ORDER BY 无论在什么语句中其执行顺序都是最后才进行执行，所以只能让其排序，把rownum放在外层，所以会比没有ORDER BY 语句的查询的运行效率较低一点</p>
 <p>需要注意的是：rownum只能使用 &lt; 或 &lt;= , 而用= 、&gt; 或 &gt;= 都将不能返回任何数据。如果遇到要使用=、&gt;、&gt;=、那么只能把rownum写在子查询的外面，那么就可查询出来。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">rownum  行号 伪列系统提供</span><br><span class="line">         本身实际就有的</span><br><span class="line">使用方式  select rownum,m.* from mark m</span><br><span class="line"></span><br><span class="line">取最大成绩：</span><br><span class="line">       select * from(select * from mark order by cmark desc) where rownum=1;</span><br><span class="line"></span><br><span class="line">select rownum,t.* from</span><br><span class="line">(</span><br><span class="line">select * from mark where cid=2001 order by camrk desc)t</span><br><span class="line">where rownum=1</span><br><span class="line">可以不显示 直接rownum=1；</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">伪列必须从1开始</span><br><span class="line"></span><br><span class="line">伪列起别名可以实例化，实例化之后可以使用</span><br><span class="line">必须实例化</span><br><span class="line"></span><br><span class="line">关于rownum的一些总结：</span><br><span class="line">！！！！</span><br><span class="line">写写好排序，在来一层写出rownum ，如果需要第几名-第几名 需要实例化 然后 再来一层用where筛选</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">rownum  行号 伪列系统提供</span><br><span class="line">         本身实际就有的</span><br><span class="line">使用方式  select rownum,m.* from mark m</span><br><span class="line"></span><br><span class="line">取最大成绩：</span><br><span class="line">       select * from(select * from mark order by cmark desc) where rownum=1;</span><br><span class="line">select rownum,t.* from</span><br><span class="line">(</span><br><span class="line">select * from mark where cid=2001 order by camrk desc)t</span><br><span class="line">where rownum=1</span><br><span class="line">可以不显示 直接rownum=1；   两个相同</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">伪列必须从1开始</span><br><span class="line"></span><br><span class="line">伪列起别名可以实例化，实例化之后可以使用</span><br><span class="line">必须实例化</span><br><span class="line"></span><br><span class="line">关于rownum的一些总结：</span><br><span class="line">！！！！</span><br><span class="line">写写好排序，在来一层写出rownum ，如果需要第几名-第几名 需要实例化 然后 再来一层用where筛选</span><br></pre></td></tr></table></figure>
 
 
 
@@ -254,7 +254,7 @@
 <p>rowid行地址（物理地址），它也是一个伪列，并不存在于实际的列表中，它是唯一的标志记录。<br>rowid 它可以用来删除重复数据，只留下唯一一条数据，如果当存在很多数据的时候，用rowid就会非常的方便。如果直接写一个删除数据的语句，那么其就会把所有重复的数据全部删除，一条数据都没有，那么这样就不是我们想要的结果。rowid它就不会把所有重复的数据删除，它会根据它的物理地址进行排序，其数据都是唯一的</p>
 <p>每一行的唯一标识，一定不相同 </p>
 <p>排序之后还是原来的</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">相同一行的数据  rowid 也不同</span><br><span class="line">select rowid from student;</span><br><span class="line"></span><br><span class="line">删除重复列</span><br><span class="line">delete from student</span><br><span class="line">where rowid not in (select max(rowid) from student group by sno,sname,ssex,sage,snativeplace);</span><br><span class="line"></span><br><span class="line">删除重复行</span><br><span class="line">select sno,rowid from (</span><br><span class="line">   select rowid ,t.* from student t order by sno</span><br><span class="line"> ) A  group by sno,rowid</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">相同一行的数据  rowid 也不同</span><br><span class="line">select rowid from student;</span><br><span class="line"></span><br><span class="line">删除重复一行数据</span><br><span class="line">delete from student</span><br><span class="line">where rowid not in (select max(rowid) from student group by sno,sname,ssex,sage,snativeplace);</span><br></pre></td></tr></table></figure>
 
 
 
@@ -532,11 +532,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">oracle</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">oracle</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
