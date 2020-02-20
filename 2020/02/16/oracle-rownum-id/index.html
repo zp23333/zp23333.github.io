@@ -22,7 +22,7 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;zp23333.github.io&#x2F;2020&#x2F;02&#x2F;16&#x2F;oracle-rownum-id&#x2F;C:%5CUsers%5Czp%5Cblog%5CBlog%5Csource_posts%5Coracle-rownum-id%5C4.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;zp23333.github.io&#x2F;2020&#x2F;02&#x2F;16&#x2F;oracle-rownum-id&#x2F;C:%5CUsers%5Czp%5Cblog%5CBlog%5Csource_posts%5Coracle-rownum-id%5C5.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;zp23333.github.io&#x2F;2020&#x2F;02&#x2F;16&#x2F;oracle-rownum-id&#x2F;6.png">
-<meta property="og:updated_time" content="2020-02-16T15:02:34.475Z">
+<meta property="og:updated_time" content="2020-02-20T11:02:03.742Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;zp23333.github.io&#x2F;2020&#x2F;02&#x2F;16&#x2F;oracle-rownum-id&#x2F;1.png">
   
@@ -194,7 +194,8 @@
 
 <p>即<strong>先查到结果集之后在加上去的一个伪列，一定要先有结果集</strong>，rownum它是对符合条件的序列号，它总是从1开始进行排序。<strong>在rownum语句中不能直接写在查询的语句上，因为这样查询出来的结果全部都是乱序。所以都是把rownum放在子查询的外层，查询出来即可</strong>。有些子查询会存在ORDER BY 排序的写法，因为ORDER BY 无论在什么语句中其执行顺序都是最后才进行执行，所以只能让其排序，把rownum放在外层，所以会比没有ORDER BY 语句的查询的运行效率较低一点</p>
 <p>需要注意的是：<strong>rownum只能使用 &lt; 或 &lt;= , 而用= 、&gt; 或 &gt;= 都将不能返回任何数据。如果遇到要使用=、&gt;、&gt;=、那么只能把rownum写在子查询的外面，那么就可查询出来</strong>。</p>
-<p><strong>1.伪列，本身就存在，可以直接在where后使用但是知道&lt;  &lt;=</strong></p>
+<p>等于也查不出来！！</p>
+<p><strong>1.伪列，本身就存在，可以直接在where后使用但是只知道&lt;  &lt;=</strong></p>
 <p><img src="/2020/02/16/oracle-rownum-id/1.png" alt></p>
 <p><img src="/2020/02/16/oracle-rownum-id/2.png" alt></p>
 <p>=1  也可以</p>
@@ -487,19 +488,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">oracle</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">oracle</a>
               </li>
              
               <li class="article-tag-list-item">
