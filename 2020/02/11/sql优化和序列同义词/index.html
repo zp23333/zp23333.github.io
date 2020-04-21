@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="sql优化删除一张表的重复记录">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-02-13T12:40:05.803Z">
+<meta property="og:updated_time" content="2020-04-09T06:38:41.856Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -187,7 +187,8 @@
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">T</span><br><span class="line">id name age</span><br><span class="line">1  a  10</span><br><span class="line">2  a  10</span><br><span class="line">3  b  11</span><br><span class="line">4  c  12</span><br><span class="line">做法一： 慢 没有索引</span><br><span class="line">delete  from T where id not in (select min(id) from T group by name,age);</span><br><span class="line">做法二: 略快</span><br><span class="line">delete from t where id in </span><br><span class="line">(select distinct a2.id from t a1,t a2 where a1.id&gt;a2.id and a1.name=a2.name</span><br><span class="line"> and a1.age=a2.age);</span><br><span class="line">做法三： 最佳</span><br><span class="line">delete from t a1 where not exists( select *</span><br><span class="line">from t a2</span><br><span class="line">where a1.id&gt;a2.id and a1.name=a2.name and a1.age=a2.age</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 
-<h4 id="1-尽量少用in操作符"><a href="#1-尽量少用in操作符" class="headerlink" title="1.尽量少用in操作符"></a>1.尽量少用in操作符</h4><p>根据表大小选择in 还是 exists  子表大选exists</p>
+<h4 id="1-尽量少用in操作符"><a href="#1-尽量少用in操作符" class="headerlink" title="1.尽量少用in操作符"></a>1.尽量少用in操作符</h4><p>根据表大小选择in 还是 exists  子表大选exists  in的话子查询会先执行</p>
+<p>先查信息量小的好</p>
 <h4 id="2-尽量用not-exists-或者外连接代替-not-in"><a href="#2-尽量用not-exists-或者外连接代替-not-in" class="headerlink" title="2.尽量用not exists 或者外连接代替 not in"></a>2.尽量用not exists 或者外连接代替 not in</h4><p>not in 不能应用索引</p>
 <h4 id="3-尽量不用-lt-gt-或者"><a href="#3-尽量不用-lt-gt-或者" class="headerlink" title="3.尽量不用&lt;&gt;或者!="></a>3.尽量不用&lt;&gt;或者!=</h4><p>不会用到索引 ，只能扫描全表 </p>
 <p>a&lt;&gt;0 改为 a&gt;0 or a&lt;0</p>
@@ -495,11 +496,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">oracle</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">oracle</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
